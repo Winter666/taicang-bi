@@ -8,6 +8,9 @@ import tiger.biz.economy.support.GdpForecastManager;
 import tiger.common.data.dataobject.GdpForecastDO;
 import tiger.core.base.BaseResult;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -25,9 +28,32 @@ public class GdpForecastController {
     {
         List<GdpForecastDO> gdpForecastDOList = gdpForecastManager.getGdpForecastData();
 
-        System.out.println(gdpForecastDOList.get(0).getGdpRealValue());
+        List<double[]> arrays=new ArrayList<double[]>();
+        double gdprealvalue[]=new double[12];
 
-        return new BaseResult(gdpForecastDOList);
+        Iterator<GdpForecastDO> e = gdpForecastDOList.iterator();
+
+        int j=0;
+
+        while(e.hasNext()){
+            GdpForecastDO temp = e.next();
+            if(temp.getIndustryType_id()==11&&temp.getYear()>2005&&temp.getYear()<2018){
+
+                gdprealvalue[j]=temp.getGdpRealValue();
+                j++;
+            }
+        }
+
+
+//        for(int i=0;i<gdpForecastDOList.size();i++){
+//            if(gdpForecastDOList.get(i).getIndustryType_id()==11&&gdpForecastDOList.get(i).getYear()>2005&&gdpForecastDOList.get(i).getYear()<2018){
+//
+//                    gdprealvalue[j]=gdpForecastDOList.get(i).getGdpRealValue();
+//                   j++;
+//            }
+//        }
+        arrays.add(gdprealvalue);
+        return new BaseResult(arrays);
     }
 
 
