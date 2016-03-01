@@ -23,12 +23,13 @@ public class PowerGdpCorrelationController {
     @Autowired
     PowerGdpCorrelationManager pgcm;
 
-    @RequestMapping(value="/api/predictData/getSomeShit/onepiece", method = RequestMethod.GET)
+    @RequestMapping(value="/api/predictData/getSomeShit", method = RequestMethod.GET)
     public BaseResult getOnePieceOfShit()
     {
-        PowerGdpCorrelationDomain pgcd = pgcm.getOnePieceOfShit();
+        List<PowerGdpCorrelationDomain> pgcd = pgcm.getPowerGdpCorrelationDomainList();
 
         return new BaseResult(pgcd);
+
     }
 
 

@@ -17,11 +17,7 @@
     <sql id="Forcast_Column_List">
         id, create_time, update_time, year, forcast_gdp_value,forcast_power_value
     </sql>
-    <select id="getOnePieceOfShit" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-        select
-        <!--<include refid="Real_Column_List" />-->
-        *
-        from power_total_forcast
-        where id=1
+    <select id="getPowerGdpCorrelationDOList" resultMap="BaseResultMap">
+        select * from power_total_forcast
     </select>
 </mapper>

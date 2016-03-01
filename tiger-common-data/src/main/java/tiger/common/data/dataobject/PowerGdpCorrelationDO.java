@@ -7,7 +7,8 @@ package tiger.common.data.dataobject;
 /**
  * Created by Bongo on 2016/3/1.
  */
-public class PowerGdpCorrelationDO extends BaseDO{
+public class PowerGdpCorrelationDO extends BaseDO
+                    implements Comparable<PowerGdpCorrelationDO>{
 
     /**
      * 数据所属年份
@@ -101,4 +102,27 @@ public class PowerGdpCorrelationDO extends BaseDO{
         this.forcastPowerValue = forcastPowerValue;
     }
 
+    /*
+    * 对象之间排序用的比较器
+    * */
+    @Override
+    public int compareTo(PowerGdpCorrelationDO target){
+
+        int thisYear = this.getYear();
+
+        int targetYear = target.getYear();
+
+        return thisYear>targetYear? 1:-1;//正序
+    }
+
+    @Override
+    public String toString() {
+        return "PowerGdpCorrelationDO{" +
+                "year=" + year +
+                ", realGdpValue=" + realGdpValue +
+                ", forcastGdpValue=" + forcastGdpValue +
+                ", realPowerValue=" + realPowerValue +
+                ", forcastPowerValue=" + forcastPowerValue +
+                '}';
+    }
 }

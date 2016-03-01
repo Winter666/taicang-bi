@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import tiger.core.domain.PowerGdpCorrelationDomain;
 import tiger.core.service.PowerGdpCorrelationService;
 
+import java.util.List;
+
 /**
  * Created by Bongo on 16/3/1.
  */
@@ -28,8 +30,8 @@ public class PowerGdpCorrelationManager {
     /**
      * @return PowerGdpCorrelationDomain
      * */
-    public PowerGdpCorrelationDomain getOnePieceOfShit(){
-        return pgcs.getOnePieceOfShit();
+    public List<PowerGdpCorrelationDomain> getPowerGdpCorrelationDomainList(){
+        return pgcs.getPowerGdpCorrelationDomainList();
     }
 
 }

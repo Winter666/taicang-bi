@@ -10,6 +10,8 @@ import tiger.common.data.persistence.PowerGdpCorrelationMapper;
 import tiger.core.converter.PowerGdpCorrelationConverter;
 import tiger.core.domain.PowerGdpCorrelationDomain;
 
+import java.util.List;
+
 /**
  * Created by Bongo on 16/3/1.
  */
@@ -19,8 +21,8 @@ public class PowerGdpCorrelationService {
     @Autowired
     private PowerGdpCorrelationMapper pgcm;
 
-    public PowerGdpCorrelationDomain getOnePieceOfShit(){
-        return PowerGdpCorrelationConverter.convert(pgcm.getOnePieceOfShit());
+    public List<PowerGdpCorrelationDomain> getPowerGdpCorrelationDomainList(){
+        return PowerGdpCorrelationConverter.convertByList(pgcm.getPowerGdpCorrelationDOList());
     }
 
 }
