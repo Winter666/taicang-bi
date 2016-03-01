@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+
+
+<mapper namespace="tiger.common.data.persistence.CodeMapper" >
+
+    <resultMap id="CodeResultMap" type="tiger.common.data.dataobject.CodeDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Code_Column_List" >
+        id, create_time, update_time,title,content,description
+    </sql>
+
+    <select id="read" resultMap="CodeResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Code_Column_List" />
+        from code
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete from code
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+
+    <insert id="insert" parameterType="tiger.common.data.dataobject.CodeDO" useGeneratedKeys="true" keyProperty="id" >
+        insert into code (create_time, update_time,
+        title, content, description)
+        values ( CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,
+        #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+    </insert>
+
+
+    <update id="update" parameterType="tiger.common.data.dataobject.CodeDO">
+        update code
+        <set>
+            update_time = CURRENT_TIMESTAMP,
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+
+
+
+
+</mapper>
