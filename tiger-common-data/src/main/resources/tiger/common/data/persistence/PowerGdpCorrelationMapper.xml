@@ -21,22 +21,3 @@
         select * from power_total_forcast
     </select>
 </mapper>
-<mapper namespace="tiger.common.data.persistence.PowerGdpCorrelationIndustryMapper" >
-<resultMap id="BaseResultMap" type="tiger.common.data.dataobject.PowerGdpCorrelationIndustryDO" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
-    <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
-    <result column="year" property="year" jdbcType="BIGINT" />
-    <result column="season" property="season" jdbcType="BIGINT" />
-    <result column="industry_id" property="industryId" jdbcType="BIGINT" />
-    <result column="real_industry_power" property="realIndustryPower" jdbcType="DOUBLE" />
-    <result column="forcast_industry_power" property="forcastIndustryPower" jdbcType="DOUBLE" />
-    <result column="real_industry_gdp" property="realIndustryGdp" jdbcType="DOUBLE" />
-    <result column="forcast_industry_gdp" property="forcastIndustryGdp" jdbcType="DOUBLE" />
-</resultMap>
-<select id="getPowerGdpCorrelationIndustryDOList" resultMap="BaseResultMap">
-    select * from industry_data_forcast
-    where
-    season = 0
-</select>
-</mapper>
