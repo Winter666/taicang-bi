@@ -30,16 +30,36 @@ public class GdpForecastController {
 
         List<double[]> arrays=new ArrayList<double[]>();
         double gdprealvalue[]=new double[12];
-
+        double gdpforecastvalue[]=new double[12];
+        double gdperrorValue[]=new double[12];
+        double gdpgrowratevalue[]=new double[12];
+        double gdpquarterrealvalue[]=new double[4];
+        double gdpquarterforecastvalue[]=new double[4];
+        double gdpquartergrowratevalue[]=new double[4];
+        double gdpfirstrealvalue[]=new double[12];
+        double gdpsecondrealvalue[]=new double[12];
+        double gdpthirdrealvalue[]=new double[12];
+        double thisyearfirstindustryvalue[]=new double[4];
+        double thisyearfirstindustryfcvalue[]=new double[4];
+        double thisyearfirstindustrygrowvalue[]=new double[4];
+        double thisyearsecondindustryvalue[]=new double[4];
+        double thisyearsecondindustryfcvalue[]=new double[4];
+        double thisyearsecondindustrygrowvalue[]=new double[4];
+        double thisyearthirdindustryvalue[]=new double[4];
+        double thisyearthirdindustryfcvalue[]=new double[4];
+        double thisyearthirdindustrygrowvalue[]=new double[4];
         Iterator<GdpForecastDO> e = gdpForecastDOList.iterator();
 
         int j=0;
 
         while(e.hasNext()){
             GdpForecastDO temp = e.next();
-            if(temp.getIndustryType_id()==11&&temp.getYear()>2005&&temp.getYear()<2018){
+            if(temp.getIndustryType_id()==11&&temp.getQuarter()==4&&temp.getYear()>2005&&temp.getYear()<2018){
 
                 gdprealvalue[j]=temp.getGdpRealValue();
+                gdpforecastvalue[j]=temp.getGdpForecastValue();
+                gdperrorValue[j]=temp.getErrorValue();
+                gdpgrowratevalue[j]=temp.getGdpGrowthRate();
                 j++;
             }
         }
@@ -53,6 +73,154 @@ public class GdpForecastController {
 //            }
 //        }
         arrays.add(gdprealvalue);
+        arrays.add(gdpforecastvalue);
+        arrays.add(gdperrorValue);
+        Iterator<GdpForecastDO> f=gdpForecastDOList.iterator();
+        int a=0;
+        while(f.hasNext()){
+            GdpForecastDO temp= f.next();
+            if (temp.getIndustryType_id()==11&& temp.getYear()==2015&&a<4){
+                if (temp.getQuarter()==a+1){
+                    gdpquarterrealvalue[a]=temp.getGdpRealValue();
+                    gdpquarterforecastvalue[a]=temp.getGdpForecastValue();
+                    gdpquartergrowratevalue[a]=temp.getGdpGrowthRate();
+                    a++;
+                }
+            }
+        }
+
+
+
+
+
+        arrays.add(gdpquarterrealvalue);
+        arrays.add(gdpquarterforecastvalue);
+        arrays.add(gdpgrowratevalue);
+        arrays.add(gdpquartergrowratevalue);
+        Iterator<GdpForecastDO> g=gdpForecastDOList.iterator();
+        int b1=0;
+        while(g.hasNext()){
+            GdpForecastDO temp=g.next();
+            if (temp.getIndustryType_id()==12&&temp.getQuarter()==4&&temp.getYear()>2005&&temp.getYear()<2018){
+              if (temp.getYear()<2016) {
+                  gdpfirstrealvalue[b1] = temp.getGdpRealValue();
+                  b1++;
+              }else if (temp.getYear()>=2016){
+                  gdpfirstrealvalue[b1]=temp.getGdpForecastValue();
+                  b1++;
+              }
+            }
+        }
+        double temptent=0;
+        for (int i=0;i<gdpfirstrealvalue.length-1;i++){
+            for (int i2=0;i2<gdpfirstrealvalue.length-1-i;i2++){
+                if(gdpfirstrealvalue[i2]>gdpfirstrealvalue[i2+1]){
+                    temptent=gdpfirstrealvalue[i2];
+                    gdpfirstrealvalue[i2]=gdpfirstrealvalue[i2+1];
+                    gdpfirstrealvalue[i2+1]=temptent;
+                }
+            }
+        }
+        arrays.add(gdpfirstrealvalue);
+        Iterator<GdpForecastDO> industry2=gdpForecastDOList.iterator();
+        int b2=0;
+        while(industry2.hasNext()){
+            GdpForecastDO temp=industry2.next();
+            if (temp.getIndustryType_id()==13&&temp.getQuarter()==4&&temp.getYear()>2005&&temp.getYear()<2018){
+                if (temp.getYear()<2016) {
+                    gdpsecondrealvalue[b2] = temp.getGdpRealValue();
+                    b2++;
+                }else if (temp.getYear()>=2016){
+                    gdpsecondrealvalue[b2]=temp.getGdpForecastValue();
+                    b2++;
+                }
+            }
+        }
+        double temptent2=0;
+        for (int i=0;i<gdpsecondrealvalue.length-1;i++){
+            for (int i2=0;i2<gdpsecondrealvalue.length-1-i;i2++){
+                if(gdpsecondrealvalue[i2]>gdpsecondrealvalue[i2+1]){
+                    temptent2=gdpsecondrealvalue[i2];
+                    gdpsecondrealvalue[i2]=gdpsecondrealvalue[i2+1];
+                    gdpsecondrealvalue[i2+1]=temptent2;
+                }
+            }
+        }
+        arrays.add(gdpsecondrealvalue);
+        Iterator<GdpForecastDO> industry3=gdpForecastDOList.iterator();
+        int b3=0;
+        while(industry3.hasNext()){
+            GdpForecastDO temp=industry3.next();
+            if (temp.getIndustryType_id()==14&&temp.getQuarter()==4&&temp.getYear()>2005&&temp.getYear()<2018){
+                if (temp.getYear()<2016){
+                    gdpthirdrealvalue[b3]=temp.getGdpRealValue();
+                    b3++;
+                }else if (temp.getYear()>=2016){
+                    gdpthirdrealvalue[b3]=temp.getGdpForecastValue();
+                    b3++;
+                }
+            }
+        }
+        double temptent3=0;
+        for (int i=0;i<gdpthirdrealvalue.length-1;i++){
+            for (int i2=0;i2<gdpthirdrealvalue.length-1-i;i2++){
+                if(gdpthirdrealvalue[i2]>gdpthirdrealvalue[i2+1]){
+                    temptent3=gdpthirdrealvalue[i2];
+                    gdpthirdrealvalue[i2]=gdpthirdrealvalue[i2+1];
+                    gdpthirdrealvalue[i2+1]=temptent3;
+                }
+            }
+        }
+        arrays.add(gdpthirdrealvalue);
+
+        Iterator<GdpForecastDO> thisyearindustry1=gdpForecastDOList.iterator();
+        int b4=0;
+        while(thisyearindustry1.hasNext()){
+            GdpForecastDO temp=thisyearindustry1.next();
+            if (temp.getIndustryType_id()==12&&temp.getYear()==2015){
+                if(temp.getQuarter()==b4+1){
+                    thisyearfirstindustryvalue[b4]=temp.getGdpRealValue();
+                    thisyearfirstindustryfcvalue[b4]=temp.getGdpForecastValue();
+                    thisyearfirstindustrygrowvalue[b4]=temp.getGdpGrowthRate();
+                    b4++;
+                }
+            }
+        }
+        arrays.add(thisyearfirstindustryvalue);
+        arrays.add(thisyearfirstindustryfcvalue);
+        arrays.add(thisyearfirstindustrygrowvalue);
+        Iterator<GdpForecastDO> thisyearindustry2=gdpForecastDOList.iterator();
+        int b5=0;
+        while(thisyearindustry2.hasNext()){
+            GdpForecastDO temp=thisyearindustry2.next();
+            if (temp.getIndustryType_id()==13&&temp.getYear()==2015){
+                if (temp.getQuarter()==b5+1){
+                    thisyearsecondindustryvalue[b5]=temp.getGdpRealValue();
+                    thisyearsecondindustryfcvalue[b5]=temp.getGdpForecastValue();
+                    thisyearsecondindustrygrowvalue[b5]=temp.getGdpGrowthRate();
+                    b5++;
+                }
+            }
+        }
+        arrays.add(thisyearsecondindustryvalue);
+        arrays.add(thisyearsecondindustryfcvalue);
+        arrays.add(thisyearfirstindustrygrowvalue);
+        Iterator<GdpForecastDO> thisyearindustry3=gdpForecastDOList.iterator();
+        int b6=0;
+        while(thisyearindustry3.hasNext()){
+            GdpForecastDO temp=thisyearindustry3.next();
+            if (temp.getIndustryType_id()==14&&temp.getYear()==2015){
+                if (temp.getQuarter()==b6+1){
+                    thisyearthirdindustryvalue[b6]=temp.getGdpRealValue();
+                    thisyearthirdindustryfcvalue[b6]=temp.getGdpForecastValue();
+                    thisyearthirdindustrygrowvalue[b6]=temp.getGdpGrowthRate();
+                    b6++;
+                }
+            }
+        }
+        arrays.add(thisyearthirdindustryvalue);
+        arrays.add(thisyearthirdindustryfcvalue);
+        arrays.add(thisyearthirdindustrygrowvalue);
         return new BaseResult(arrays);
     }
 
