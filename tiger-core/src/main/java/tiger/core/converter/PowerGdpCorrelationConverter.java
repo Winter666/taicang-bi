@@ -27,8 +27,6 @@ public class PowerGdpCorrelationConverter {
         //第一步:对原始集合对象按年份排序
         Collections.sort(powerDOs);
 
-        System.out.println(powerDOs);
-
         //新建目标集合
         List<PowerGdpCorrelationDomain> powerDomains = new ArrayList<PowerGdpCorrelationDomain>();
 

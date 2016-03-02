@@ -23,10 +23,13 @@ public class PowerGdpCorrelationController {
     @Autowired
     PowerGdpCorrelationManager pgcm;
 
-    @RequestMapping(value="/api/predictData/getSomeShit", method = RequestMethod.GET)
+    /**
+     * 工业用电量与经济发展关联分析 图一
+     * */
+    @RequestMapping(value="/api/predictData/powerGdpCorrelationData/list", method = RequestMethod.GET)
     public BaseResult getOnePieceOfShit()
     {
-        List<PowerGdpCorrelationDomain> pgcd = pgcm.getPowerGdpCorrelationDomainList();
+        List<double[]> pgcd = pgcm.getPowerGdpArray();
 
         return new BaseResult(pgcd);
 
