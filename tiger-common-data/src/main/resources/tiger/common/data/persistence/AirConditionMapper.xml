@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.AirConditionMapper" >
+    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.AirConditionDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
+        <result column="date" property="date" jdbcType="DATE" />
+        <result column="hour" property="hour" jdbcType="BIGINT" />
+        <result column="day" property="day" jdbcType="BIGINT" />
+        <result column="month" property="month" jdbcType="BIGINT" />
+        <result column="year" property="year" jdbcType="BIGINT" />
+        <result column="flowDirection" property="flowDirection" jdbcType="VARCHAR" />
+        <result column="flowLevel" property="flowLevel" jdbcType="BIGINT" />
+        <result column="humidity" property="humidity" jdbcType="BIGINT" />
+        <result column="rainfall" property="rainfall" jdbcType="BIGINT" />
+        <result column="temperature" property="temperature" jdbcType="BIGINT" />
+        <result column="air_monitor" property="air_monitor" jdbcType="BIGINT" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,create_time,modify_time,date,hour,day,month,year,flowDirection,flowLevel,humidity,rainfall,temperature,air_monitor
+    </sql>
+    <select id="getAirConditionData" resultMap="BaseResultMap">
+        select * from air_condition_data
+    </select>
+
+</mapper>

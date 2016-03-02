@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.AirQualityMapper" >
+    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.AirQualityDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
+        <result column="date" property="date" jdbcType="DATE" />
+        <result column="hour" property="hour" jdbcType="BIGINT" />
+        <result column="day" property="day" jdbcType="BIGINT" />
+        <result column="month" property="month" jdbcType="BIGINT" />
+        <result column="year" property="year" jdbcType="BIGINT" />
+        <result column="aqi" property="aqi" jdbcType="BIGINT" />
+        <result column="airQualityLevel" property="airQualityLevel" jdbcType="BIGINT" />
+        <result column="firstElement" property="firstElement" jdbcType="VARCHAR" />
+        <result column="co" property="co" jdbcType="DOUBLE" />
+        <result column="no2" property="no2" jdbcType="DOUBLE" />
+        <result column="o3" property="o3" jdbcType="DOUBLE" />
+        <result column="pm10" property="pm10" jdbcType="DOUBLE" />
+        <result column="pm25" property="pm25" jdbcType="DOUBLE" />
+        <result column="so2" property="so2" jdbcType="DOUBLE" />
+        <result column="airMonitor" property="airMonitor" jdbcType="BIGINT" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,create_time,modify_time,date,hour,day,month,year,aqi,airQualityLevel,firstElement,co,no2,o3,pm10,pm25,so2,airMonitor
+    </sql>
+    <select id="getAirQualityData" resultMap="BaseResultMap">
+        select * from air_quality_data
+    </select>
+
+</mapper>
