@@ -4,9 +4,7 @@
  */
 package tiger.core.converter;
 
-import tiger.common.data.dataobject.PowerGdpCorrelationDO;
 import tiger.common.data.dataobject.PowerGdpCorrelationIndustryDO;
-import tiger.core.domain.PowerGdpCorrelationDomain;
 import tiger.core.domain.PowerGdpCorrelationIndustryDomain;
 
 import java.text.SimpleDateFormat;

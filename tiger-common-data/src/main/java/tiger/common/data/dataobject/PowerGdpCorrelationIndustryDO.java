@@ -8,7 +8,7 @@ package tiger.common.data.dataobject;
  * Created by Bongo on 16/3/2.
  */
 public class PowerGdpCorrelationIndustryDO extends BaseDO
-        implements Comparable<PowerGdpCorrelationIndustryDO>{
+                 implements Comparable<PowerGdpCorrelationIndustryDO>{
 
     private int year;
 
