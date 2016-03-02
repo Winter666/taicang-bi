@@ -24,7 +24,7 @@ public class AirQualityController {
     {
         List<AirQualityDO> airQualityDOList = airQualityManager.getAirQualityData();
 
-        System.out.println(airQualityDOList.get(0).getAqi());
+//        System.out.println(airQualityDOList.get(0).getAqi());
 
         return new BaseResult(airQualityDOList);
     }

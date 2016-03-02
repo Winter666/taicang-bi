@@ -24,7 +24,7 @@ public class AirPollutionController {
     {
         List<AirPollutionDO> airPollutionDOList = airPollutionManager.getAirPollutionData();
 
-        System.out.println(airPollutionDOList.get(0).getDischarge());
+//        System.out.println(airPollutionDOList.get(0).getDischarge());
 
         return new BaseResult(airPollutionDOList);
     }
