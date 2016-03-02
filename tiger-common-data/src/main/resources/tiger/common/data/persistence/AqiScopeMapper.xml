@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.AqiScopeMapper" >
+    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.AqiScopeDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
+        <result column="airQualityLevel" property="airQualityLevel" jdbcType="BIGINT" />
+        <result column="aqiStatus" property="aqiStatus" jdbcType="VARCHAR" />
+        <result column="healthEffects" property="healthEffects" jdbcType="VARCHAR" />
+        <result column="proposedMeasures" property="proposedMeasures" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,create_time,modify_time,airQualityLevel,aqiStatus,healthEffects,proposedMeasures
+    </sql>
+    <select id="getAqiScopeData" resultMap="BaseResultMap">
+        select * from aqi_scope_data
+    </select>
+
+</mapper>
