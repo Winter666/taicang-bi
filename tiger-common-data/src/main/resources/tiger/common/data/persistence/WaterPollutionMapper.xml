@@ -13,7 +13,7 @@
         <result column="cod" property="cod" jdbcType="DOUBLE" />
         <result column="nh4n" property="nh4n" jdbcType="DOUBLE" />
         <result column="p" property="p" jdbcType="DOUBLE" />
-        <result column="water_pollution_source" property="water_pollution_source" jdbcType="VARCHAR" />
+        <result column="water_pollution_source" property="water_pollution_source" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
         id,create_time,modify_time,date,day,month,year,discharge,water_Pollution

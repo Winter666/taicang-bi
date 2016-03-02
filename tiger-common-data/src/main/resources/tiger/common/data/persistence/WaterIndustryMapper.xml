@@ -10,7 +10,7 @@
         <result column="month" property="month" jdbcType="BIGINT" />
         <result column="year" property="year" jdbcType="BIGINT" />
         <result column="discharge" property="discharge" jdbcType="DOUBLE" />
-        <result column="water_industry" property="water_industry" jdbcType="VARCHAR" />
+        <result column="water_industry" property="water_industry" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
         id,create_time,modify_time,date,day,month,year,discharge,water_industry

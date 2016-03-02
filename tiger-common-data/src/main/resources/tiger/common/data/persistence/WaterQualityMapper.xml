@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
-<mapper namespace="tiger.common.data.persistence.WaterConditionMapper" >
-    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.WaterConditionDO" >
+<mapper namespace="tiger.common.data.persistence.WaterQualityMapper" >
+    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.WaterQualityDO" >
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
         <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
@@ -10,15 +10,18 @@
         <result column="day" property="day" jdbcType="BIGINT" />
         <result column="month" property="month" jdbcType="BIGINT" />
         <result column="year" property="year" jdbcType="BIGINT" />
-        <result column="waterLevelDown" property="waterLevelDown" jdbcType="DOUBLE" />
-        <result column="waterLevelUp" property="waterLevelUp" jdbcType="DOUBLE" />
+        <result column="kmno4" property="kmno4" jdbcType="DOUBLE" />
+        <result column="nh4n" property="nh4n" jdbcType="DOUBLE" />
+        <result column="o2" property="o2" jdbcType="DOUBLE" />
+        <result column="p" property="p" jdbcType="DOUBLE" />
+        <result column="tn" property="tn" jdbcType="DOUBLE" />
         <result column="water_monitor" property="water_monitor" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
-        id,create_time,modify_time,date,hour,day,month,year,waterLevelDown,waterLevelUp,water_monitor
+        id,create_time,modify_time,date,hour,day,month,year,kmno4,nh4n,o2,p,tn,water_monitor
     </sql>
-    <select id="getWaterConditionData" resultMap="BaseResultMap">
-        select * from water_condition_data
+    <select id="getWaterQualityData" resultMap="BaseResultMap">
+        select * from water_quality_data
     </select>
 
 </mapper>
