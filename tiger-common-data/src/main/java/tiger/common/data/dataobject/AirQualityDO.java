@@ -19,6 +19,8 @@ public class AirQualityDO extends BaseDO {
 
     private int aqi;
 
+    private int predictaqi;
+
     private int airQualityLevel;
 
     private String firstElement;
@@ -99,6 +101,14 @@ public class AirQualityDO extends BaseDO {
 
     public void setAqi(int aqi) {
         this.aqi = aqi;
+    }
+
+    public int getPredictaqi() {
+        return predictaqi;
+    }
+
+    public void setPredictaqi(int predictaqi) {
+        this.predictaqi = predictaqi;
     }
 
     public int getAirQualityLevel() {

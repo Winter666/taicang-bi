@@ -11,6 +11,7 @@
         <result column="month" property="month" jdbcType="BIGINT" />
         <result column="year" property="year" jdbcType="BIGINT" />
         <result column="aqi" property="aqi" jdbcType="BIGINT" />
+        <result column="aqipredict" property="aqipredict" jdbcType="BIGINT" />
         <result column="airQualityLevel" property="airQualityLevel" jdbcType="BIGINT" />
         <result column="firstElement" property="firstElement" jdbcType="VARCHAR" />
         <result column="co" property="co" jdbcType="DOUBLE" />
@@ -26,6 +27,8 @@
     </sql>
     <select id="getAirQualityData" resultMap="BaseResultMap">
         select * from air_quality_data
+        where air_monitor=4001
+        order by id desc;
     </select>
 
 </mapper>
