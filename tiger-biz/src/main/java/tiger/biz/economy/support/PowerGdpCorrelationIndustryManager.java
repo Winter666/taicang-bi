@@ -75,14 +75,14 @@ public class PowerGdpCorrelationIndustryManager {
     /**
      * @return PowerGdpCorrelationDomainList
      * */
-    public List<PowerGdpCorrelationIndustryDomain> getPowerGdpCorrelationIndustryDomainList(){
+    private List<PowerGdpCorrelationIndustryDomain> getPowerGdpCorrelationIndustryDomainList(){
         return pgcis.getPowerGdpCorrelationIndustryDomainList();
     }
 
     /**
      * @return keyarray
      * */
-    public static int[] getYearKeys(List<PowerGdpCorrelationIndustryDomain> domains){
+    private static int[] getYearKeys(List<PowerGdpCorrelationIndustryDomain> domains){
 
         int[] i = new int[12];
 

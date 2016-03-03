@@ -18,4 +18,7 @@
         where
         season = 0
     </select>
+    <select id="getPowerGdpCorrelationIndustrySoloDOList" resultMap="BaseResultMap">
+        select * from industry_data_forcast
+    </select>
 </mapper>

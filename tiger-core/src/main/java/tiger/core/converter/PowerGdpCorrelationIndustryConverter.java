@@ -48,7 +48,12 @@ public class PowerGdpCorrelationIndustryConverter {
         return domains;
 
     }
-    public static PowerGdpCorrelationIndustryDomain singleConvertOnReal(PowerGdpCorrelationIndustryDO DO){
+
+    /**
+     * @return PowerGdpCorrelationIndustryDomain 如果是真实值则调用
+     * @param DO
+     * */
+    private static PowerGdpCorrelationIndustryDomain singleConvertOnReal(PowerGdpCorrelationIndustryDO DO){
 
         PowerGdpCorrelationIndustryDomain domain = new PowerGdpCorrelationIndustryDomain();
 
@@ -63,7 +68,12 @@ public class PowerGdpCorrelationIndustryConverter {
         return domain;
 
     }
-    public static PowerGdpCorrelationIndustryDomain singleConvertOnForcast(PowerGdpCorrelationIndustryDO DO){
+
+    /**
+     * @return PowerGdpCorrelationIndustryDomain 如果是预测值则调用
+     * @param DO
+     * */
+    private static PowerGdpCorrelationIndustryDomain singleConvertOnForcast(PowerGdpCorrelationIndustryDO DO){
 
         PowerGdpCorrelationIndustryDomain domain = new PowerGdpCorrelationIndustryDomain();
 

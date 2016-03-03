@@ -80,6 +80,12 @@ public class PowerGdpCorrelationIndustryDO extends BaseDO
         this.year = year;
     }
 
+
+    /**
+     * @param target
+     * sorted according year->industryId->season
+     * 最终排序结果和数据库初始顺序有关系????????????????????????????????后面回来看看
+     * */
     @Override
     public int compareTo(PowerGdpCorrelationIndustryDO target){
 
@@ -91,12 +97,18 @@ public class PowerGdpCorrelationIndustryDO extends BaseDO
 
         int targetId = target.getIndustryId();
 
+        int targetSeason =target.getSeason();
+
+        int thisSeason = this.getSeason();
+
         if(thisYear>targetYear)
             return 1;
         else if(thisYear<targetYear)
             return -1;
         else{
             if (thisId>targetId) return 1;
+            else if(thisId<targetId)return -1;
+            else if(thisSeason>targetSeason) return 1;
             else return -1;
         }
     }

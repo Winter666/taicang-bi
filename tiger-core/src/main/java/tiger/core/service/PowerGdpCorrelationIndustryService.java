@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tiger.common.data.persistence.PowerGdpCorrelationIndustryMapper;
 import tiger.core.converter.PowerGdpCorrelationIndustryConverter;
+import tiger.core.converter.PowerGdpCorrelationIndustrySoloConverter;
 import tiger.core.domain.PowerGdpCorrelationIndustryDomain;
+import tiger.core.domain.PowerGdpCorrelationIndustrySoloDomain;
 
 import java.util.List;
 
@@ -24,5 +26,16 @@ public class PowerGdpCorrelationIndustryService {
     public List<PowerGdpCorrelationIndustryDomain> getPowerGdpCorrelationIndustryDomainList(){
         return PowerGdpCorrelationIndustryConverter.convertByList(pgcim.getPowerGdpCorrelationIndustryDOList());
     }
+
+    public List<PowerGdpCorrelationIndustrySoloDomain> getPowerGdpCorrelationIndustrySoloDomainList(){
+
+        return PowerGdpCorrelationIndustrySoloConverter.convertByList(pgcim.getPowerGdpCorrelationIndustrySoloDOList());
+
+    }
+
+    /*
+   * main for test
+   * how to write????????
+   * */
 
 }

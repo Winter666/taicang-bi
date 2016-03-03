@@ -4,6 +4,7 @@
  */
 package tiger.common.data.persistence;
 
+import tiger.common.data.dataobject.PowerGdpCorrelationDO;
 import tiger.common.data.dataobject.PowerGdpCorrelationIndustryDO;
 
 import java.util.List;
@@ -14,5 +15,6 @@ import java.util.List;
 public interface PowerGdpCorrelationIndustryMapper {
 
     List<PowerGdpCorrelationIndustryDO> getPowerGdpCorrelationIndustryDOList();
+    List<PowerGdpCorrelationIndustryDO> getPowerGdpCorrelationIndustrySoloDOList();
 
 }

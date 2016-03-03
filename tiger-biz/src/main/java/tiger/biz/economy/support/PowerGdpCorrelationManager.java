@@ -58,7 +58,7 @@ public class PowerGdpCorrelationManager {
     /**
      * @return PowerGdpCorrelationDomainList
      * */
-    public List<PowerGdpCorrelationDomain> getPowerGdpCorrelationDomainList(){
+    private List<PowerGdpCorrelationDomain> getPowerGdpCorrelationDomainList(){
         return pgcs.getPowerGdpCorrelationDomainList();
     }
 
