@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import tiger.biz.economy.support.PowerGdpCorrelationEnterpriseAverageManager;
 import tiger.biz.economy.support.PowerGdpCorrelationIndustryManager;
 import tiger.biz.economy.support.PowerGdpCorrelationIndustrySoloManager;
 import tiger.biz.economy.support.PowerGdpCorrelationManager;
@@ -32,6 +33,9 @@ public class PowerGdpCorrelationController {
 
     @Autowired
     PowerGdpCorrelationIndustrySoloManager powerGdpCorrelationIndustrySoloManager;
+
+    @Autowired
+    PowerGdpCorrelationEnterpriseAverageManager powerGdpCorrelationEnterpriseAverageManager;
 
     /**
      * 工业用电量与经济发展关联分析 图一
@@ -60,6 +64,14 @@ public class PowerGdpCorrelationController {
        Map map = powerGdpCorrelationIndustrySoloManager.getPowerGdpCorrelationIndustrySoloDomainMap();
 
         return new BaseResult(map);
+
+    }
+    @RequestMapping(value = "/api/predictData/powerGdpCorrelationEnterpriseAverageData/list",method = RequestMethod.GET)
+    public BaseResult getEnterpriseAverageList(){
+
+        List<double[]> list = powerGdpCorrelationEnterpriseAverageManager.getPowerGdpArray();
+
+        return new BaseResult(list);
 
     }
 
