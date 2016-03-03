@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import tiger.biz.environment.support.AirQualityManager;
 import tiger.common.data.dataobject.AirQualityDO;
+import tiger.common.data.dataobject.GdpForecastDO;
 import tiger.core.base.BaseResult;
 
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,9 +28,23 @@ public class AirQualityController {
     {
         List<AirQualityDO> airQualityDOList = airQualityManager.getAirQualityData();
 
-//        System.out.println(airQualityDOList.get(0).getAqi());
+        List<int[]> arrays=new ArrayList<int[]>();
+        int aqi[]=new int[7];
+        Iterator<AirQualityDO> e = airQualityDOList.iterator();
 
-        return new BaseResult(airQualityDOList);
+
+        int j=0;
+        while(e.hasNext()){
+            AirQualityDO temp = e.next();
+            if(temp.getId().longValue()>=1 && temp.getId().longValue()<=7){
+
+                aqi[j]=temp.getAqi();
+                j++;
+            }
+        }
+
+        arrays.add(aqi);
+        return new BaseResult(arrays);
     }
 
 }
