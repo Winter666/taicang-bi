@@ -19,7 +19,7 @@
         <result column="pm10" property="pm10" jdbcType="DOUBLE" />
         <result column="pm25" property="pm25" jdbcType="DOUBLE" />
         <result column="so2" property="so2" jdbcType="DOUBLE" />
-        <result column="airMonitor" property="airMonitor" jdbcType="BIGINT" />
+        <result column="air_monitor" property="air_monitor" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
         id,create_time,modify_time,date,hour,day,month,year,aqi,airQualityLevel,firstElement,co,no2,o3,pm10,pm25,so2,airMonitor

@@ -21,7 +21,7 @@ public class AirQualityDO extends BaseDO {
 
     private double airQualityLevel;
 
-    private double firstElement;
+    private String firstElement;
 
     private double co;
 
@@ -35,7 +35,7 @@ public class AirQualityDO extends BaseDO {
 
     private double so2;
 
-    private int airMonitor;
+    private int air_monitor;
 
     public Date getDate() {
         return date;
@@ -109,11 +109,11 @@ public class AirQualityDO extends BaseDO {
         this.airQualityLevel = airQualityLevel;
     }
 
-    public double getFirstElement() {
+    public String getFirstElement() {
         return firstElement;
     }
 
-    public void setFirstElement(double firstElement) {
+    public void setFirstElement(String firstElement) {
         this.firstElement = firstElement;
     }
 
@@ -149,11 +149,11 @@ public class AirQualityDO extends BaseDO {
         this.pm10 = pm10;
     }
 
-    public int getAirMonitor() {
-        return airMonitor;
+    public int getAir_monitor() {
+        return air_monitor;
     }
 
-    public void setAirMonitor(int airMonitor) {
-        this.airMonitor = airMonitor;
+    public void setAir_monitor(int air_monitor) {
+        this.air_monitor = air_monitor;
     }
 }
