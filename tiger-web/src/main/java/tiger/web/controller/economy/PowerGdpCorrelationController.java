@@ -43,9 +43,9 @@ public class PowerGdpCorrelationController {
     @RequestMapping(value="/api/predictData/powerGdpCorrelationData/list", method = RequestMethod.GET)
     public BaseResult getOnePieceOfShit()
     {
-        List<double[]> pgcd = pgcm.getPowerGdpArray();
+        List<double[]> onepiece = pgcm.getPowerGdpArray();
 
-        return new BaseResult(pgcd);
+        return new BaseResult(onepiece);
 
     }
 
