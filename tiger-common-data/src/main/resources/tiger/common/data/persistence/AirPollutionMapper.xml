@@ -20,6 +20,7 @@
     </sql>
     <select id="getAirPollutionData" resultMap="BaseResultMap">
         select * from air_pollution_data
+        order by id desc;
     </select>
 
 </mapper>
