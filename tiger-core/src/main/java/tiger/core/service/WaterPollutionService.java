@@ -20,4 +20,8 @@ public class WaterPollutionService {
     {
         return waterPollutionMapper.getWaterPollutionData();
     }
+
+    public List<WaterPollutionDO> getWaterPollutionDataForMap(){
+        return waterPollutionMapper.getWaterPollutionDataForMap();
+    }
 }

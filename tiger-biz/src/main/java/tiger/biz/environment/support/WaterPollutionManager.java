@@ -21,4 +21,8 @@ public class WaterPollutionManager {
         return waterPollutionService.getWaterPollutionData();
     }
 
+    public List<WaterPollutionDO> getWaterPollutionDataForMap(){
+        return waterPollutionService.getWaterPollutionDataForMap();
+    }
+
 }

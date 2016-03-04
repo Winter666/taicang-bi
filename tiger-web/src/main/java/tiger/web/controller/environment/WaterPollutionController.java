@@ -15,12 +15,13 @@ import java.util.Iterator;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/api/rawData/waterPollutionData")
 public class WaterPollutionController {
 
     @Autowired
     private WaterPollutionManager waterPollutionManager;
 
-	@RequestMapping(value="/api/rawData/waterPollutionData/list", method = RequestMethod.GET)
+	@RequestMapping(value="/list", method = RequestMethod.GET)
     public BaseResult getWaterPollutionData()
     {
         List<WaterPollutionDO> waterPollutionDOList = waterPollutionManager.getWaterPollutionData();
@@ -111,5 +112,13 @@ public class WaterPollutionController {
 
         return new BaseResult(list);
     }
+
+	//水质监测站及其附近污水处理厂查看所需数据
+	@RequestMapping(value = "/forMap",method = RequestMethod.GET)
+	public BaseResult getWaterPollutionDataForMap(){
+		return  new BaseResult(this.waterPollutionManager.getWaterPollutionDataForMap());
+
+	}
+
 
 }

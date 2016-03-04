@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface WaterPollutionMapper {
     List<WaterPollutionDO> getWaterPollutionData();
+    List<WaterPollutionDO> getWaterPollutionDataForMap();
 }
