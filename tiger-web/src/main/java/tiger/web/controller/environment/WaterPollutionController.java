@@ -25,25 +25,91 @@ public class WaterPollutionController {
     {
         List<WaterPollutionDO> waterPollutionDOList = waterPollutionManager.getWaterPollutionData();
         
-        List<double[]> arrays=new ArrayList<double[]>();
-        double discharge[]=new double[7];
-        Iterator<WaterPollutionDO> e = waterPollutionDOList.iterator();
+       System.out.println(waterPollutionDOList.size());
 
 
-        int j=0;
-        while(e.hasNext()){
-        	WaterPollutionDO temp = e.next();
-            if(temp.getId().longValue()>=1 && temp.getId().longValue()<=7){
+        ArrayList<Double> list1  = new ArrayList<Double>();
+        ArrayList<Double> list2  = new ArrayList<Double>();
+        ArrayList<Double> list3  = new ArrayList<Double>();
+        ArrayList<Double> list4  = new ArrayList<Double>();
+        ArrayList<Double> list5 = new ArrayList<Double>();
+        
 
-            	discharge[j]=temp.getDischarge();
-                j++;
-            }
+        for(int i = 0;i<waterPollutionDOList.size();i++)
+        {
+        	
+        	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
+        	switch (key) {
+			case 1:
+				list1.add(waterPollutionDOList.get(i).getDischarge());
+				break;
+			case 2:
+				list2.add(waterPollutionDOList.get(i).getDischarge());
+				break;
+			case 6:
+				list3.add(waterPollutionDOList.get(i).getDischarge());
+				break;
+			case 7:
+				list4.add(waterPollutionDOList.get(i).getDischarge());
+				break;
+			case 9:
+				list5.add(waterPollutionDOList.get(i).getDischarge());
+				break;
+
+			default:
+				break;
+			}
         }
+        
+        List  list = new ArrayList<>();
+        list.add(list1);
+        list.add(list2);
+        list.add(list3);
+        list.add(list4);
+        list.add(list5);
+  
+        
+        ArrayList<Double> list6  = new ArrayList<Double>();
+        ArrayList<Double> list7  = new ArrayList<Double>();
+        ArrayList<Double> list8  = new ArrayList<Double>();
+        ArrayList<Double> list9  = new ArrayList<Double>();
+        ArrayList<Double> list10 = new ArrayList<Double>();
+        
 
-        arrays.add(discharge);
-//        System.out.println(waterPollutionDOList.get(0).getCod());
+        for(int i = 0;i<waterPollutionDOList.size();i++)
+        {
+        	
+        	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
+        	switch (key) {
+			case 1:
+				list6.add(waterPollutionDOList.get(i).getCod());
+				break;
+			case 2:
+				list7.add(waterPollutionDOList.get(i).getCod());
+				break;
+			case 6:
+				list8.add(waterPollutionDOList.get(i).getCod());
+				break;
+			case 7:
+				list9.add(waterPollutionDOList.get(i).getCod());
+				break;
+			case 9:
+				list10.add(waterPollutionDOList.get(i).getCod());
+				break;
 
-        return new BaseResult(arrays);
+			default:
+				break;
+			}
+        }
+        
+
+        list.add(list6);
+        list.add(list7);
+        list.add(list8);
+        list.add(list9);
+        list.add(list10);
+
+        return new BaseResult(list);
     }
 
 }

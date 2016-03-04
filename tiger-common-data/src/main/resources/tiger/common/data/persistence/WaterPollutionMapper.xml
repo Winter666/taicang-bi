@@ -19,7 +19,7 @@
         id,create_time,modify_time,date,day,month,year,discharge,water_Pollution
     </sql>
     <select id="getWaterPollutionData" resultMap="BaseResultMap">
-        select * from water_pollution_data
+        SELECT * FROM `water_pollution_data` where (water_pollution_source = 4011 or water_pollution_source = 4012 or water_pollution_source = 4016 or water_pollution_source = 4017 or water_pollution_source = 4019) order by id DESC limit 30
     </select>
 
 </mapper>
