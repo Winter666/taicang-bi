@@ -30,20 +30,36 @@ public class AirPollutionController {
         List arrays=new ArrayList();
         double smoke[]=new double[4];
 
-        int j=0;
+        int j=0;int a=0;int b=0;int c=0;int d=0;
         Iterator<AirPollutionDO> e = airPollutionDOList.iterator();
         AirPollutionDO temp = e.next();
-        while(e.hasNext()&&j<4){
-            if(temp.get){
-
-            }
+        while(j<4&&e.hasNext()||a==0||b==0||c==0||d==0){
             smoke[j]=temp.getSmoke();
+            if(temp.getAir_pollution_source()==4022 && a==0){
+                temp.getSmoke();
+                a++;
+                j++;
+            }
+            if(temp.getAir_pollution_source()==4023 && b==0){
+                temp.getSmoke();
+                b++;
+                j++;
+            }
+            if(temp.getAir_pollution_source()==4024 && c==0){
+                temp.getSmoke();
+                c++;
+                j++;
+            }
+            if(temp.getAir_pollution_source()==4025 && d==0) {
+                temp.getSmoke();
+                d++;
+                j++;
+            }
             temp=e.next();
-            j++;
         }
 
 
-        return new BaseResult(airPollutionDOList);
+        return new BaseResult(smoke);
     }
 
 }
