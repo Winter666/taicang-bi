@@ -1,0 +1,69 @@
+package tiger.common.data.dataobject;
+
+
+public class BirthrateDO extends BaseDO {
+
+    private int  year;
+
+    private char town;
+
+    private int town_id;
+    
+    private int bornPopulation;
+    
+    private int deadPopulation;
+    
+    private int population;
+
+    public char getTown() {
+        return town;
+    }
+
+    public void setTown(char town) {
+        this.town = town;
+    }
+
+    public int getTown_id() {
+        return town_id;
+    }
+
+    public void setTown_id(int town_id) {
+        this.town_id = town_id;
+    }
+    
+    public double getBornPopulation() {
+        return bornPopulation;
+    }
+
+    public void setBornPopulation(int bornPopulation) {
+        this.bornPopulation = bornPopulation;
+    }
+
+    public double getDeadPopulation() {
+        return deadPopulation;
+    }
+
+    public void setDeadPopulation(int deadPopulation) {
+        this.deadPopulation = deadPopulation;
+    }
+      
+    public double getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    
+}

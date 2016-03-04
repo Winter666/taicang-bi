@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.PopulationStructurePreMapper" >
+    <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.PopulationStructurePreDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="modify_time" property="modify_time" jdbcType="TIMESTAMP" />
+        <result column="preyear" property="preyear" jdbcType="BIGINT" />
+        <result column="ageType_id" property="ageType_id" jdbcType="BIGINT" />
+        <result column="sexType_id" property="sexType_id" jdbcType="BIGINT" />
+        <result column="preResidentPopulation" property="preResidentPopulation" jdbcType="BIGINT" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, create_time, modify_time,preyear,ageType_id,sexType_id,preResidentPopulation
+    </sql>
+    <select id="getPopulationStructurePreData" resultMap="BaseResultMap">
+        select * from population_structure_pre_data
+    </select>
+
+</mapper>
