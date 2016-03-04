@@ -38,6 +38,7 @@ public class AirQualityController {
         int month[]=new int[7];
         int month1[]=new int[7];
         String date[]=new String[7];
+        String datetime[]=new String[7];
         String firstElement[]=new String[7];
         String firstElement1[]=new String[7];
         double pm25[]=new double[7];
@@ -52,10 +53,18 @@ public class AirQualityController {
         double co1[]=new double[7];
         double o3[]=new double[7];
         double o31[]=new double[7];
+        int hour[]=new int[7];
+        int hour1[]=new int[7];
+        int airQualityLevel[]=new int[7];
+        int airQualityLevel1[]=new int[7];
+        String airQualityLevel2[]=new String[7];
+        String healthEffect[]=new String[7];
+        String proposedMeasure[]=new String[7];
         Iterator<AirQualityDO> e = airQualityDOList.iterator();
 
 
         int j=0;
+        int flag=0;
         AirQualityDO temp = e.next();
         while(e.hasNext()&&j<7){
             aqi[j]=temp.getAqi();
@@ -69,10 +78,12 @@ public class AirQualityController {
             no2[j]=temp.getNo2();
             co[j]=temp.getCo();
             o3[j]=temp.getO3();
+            hour[j]=temp.getHour();
+            airQualityLevel[j]=temp.getAirQualityLevel();
+//            因为每一天都有24条记录,所以e.next()跳24次得到每天相同时间的AQI
+            temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();
+            temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();
             j++;
-            //因为每一天都有24条记录,所以e.next()跳24次得到每天相同时间的AQI
-            temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();
-            temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();temp = e.next();
         }
         //因为AirQualityMapper.xml中的sql语句用到了order by desc, 所以这边把数组的顺序正过来
         aqi1[0]=aqi[6];aqi1[1]=aqi[5];aqi1[2]=aqi[4];aqi1[3]=aqi[3];aqi1[4]=aqi[2];aqi1[5]=aqi[1];aqi1[6]=aqi[0];
@@ -86,9 +97,40 @@ public class AirQualityController {
         no21[0]=no2[6];no21[1]=no2[5];no21[2]=no2[4];no21[3]=no2[3];no21[4]=no2[2];no21[5]=no2[1];no21[6]=no2[0];
         co1[0]=co[6];co1[1]=co[5];co1[2]=co[4];co1[3]=co[3];co1[4]=co[2];co1[5]=co[1];co1[6]=co[0];
         o31[0]=o3[6];o31[1]=o3[5];o31[2]=o3[4];o31[3]=o3[3];o31[4]=o3[2];o31[5]=o3[1];o31[6]=o3[0];
-
+        hour1[0]=hour[6];hour1[1]=hour[5];hour1[2]=hour[4];hour1[3]=hour[3];hour1[4]=hour[2];hour1[5]=hour[1];hour1[6]=hour[0];
+        airQualityLevel1[0]=airQualityLevel[6];airQualityLevel1[1]=airQualityLevel[5];airQualityLevel1[2]=airQualityLevel[4];airQualityLevel1[3]=airQualityLevel[3];airQualityLevel1[4]=airQualityLevel[2];airQualityLevel1[5]=airQualityLevel[1];airQualityLevel1[6]=airQualityLevel[0];
         for (j = 0; j < 7; j++) {
             date[j]=month1[j]+"月"+day1[j]+"日";
+            datetime[j]=month1[j]+"月"+day1[j]+"日"+hour1[j]+"时";
+        }
+        for (j = 0; j < 7; j++) {
+            switch (airQualityLevel1[j]){
+                case 1:
+                    airQualityLevel2[j]="优";
+                    healthEffect[j]="空气质量令人满意，基本无空气污染";
+                    proposedMeasure[j]="极少数异常敏感人群应减少户外运动";
+                    break;
+                case 2:
+                    airQualityLevel2[j]="良";
+                    healthEffect[j]="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响";
+                    proposedMeasure[j]="极少数异常敏感人群应减少户外运动";
+                    break;
+                case 3:
+                    airQualityLevel2[j]="轻度污染";
+                    healthEffect[j]="易感人群症状有轻度加剧，健康人群出现刺激症状";
+                    proposedMeasure[j]="儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼";
+                    break;
+                case 4:
+                    airQualityLevel2[j]="中度污染";
+                    healthEffect[j]="进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响";
+                    proposedMeasure[j]="儿童、老年人及心脏病、呼吸系统疾病患者避免长时间、高强度的户外锻炼，一般人群适量减少户外运动";
+                    break;
+                case 5:
+                    airQualityLevel2[j]="严重污染";
+                    healthEffect[j]="健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病";
+                    proposedMeasure[j]="儿童、老年人和病人应停留在室内，避免体力消耗，一般人群避免户外活动";
+                    break;
+            }
         }
         arrays.add(aqi1);
         arrays.add(predictaqi1);
@@ -100,6 +142,10 @@ public class AirQualityController {
         arrays.add(no21);
         arrays.add(co1);
         arrays.add(o31);
+        arrays.add(datetime);
+        arrays.add(airQualityLevel2);
+        arrays.add(healthEffect);
+        arrays.add(proposedMeasure);
         return new BaseResult(arrays);
     }
 
