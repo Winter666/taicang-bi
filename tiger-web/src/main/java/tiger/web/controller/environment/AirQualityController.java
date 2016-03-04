@@ -60,11 +60,9 @@ public class AirQualityController {
         String airQualityLevel2[]=new String[7];
         String healthEffect[]=new String[7];
         String proposedMeasure[]=new String[7];
-        Iterator<AirQualityDO> e = airQualityDOList.iterator();
-
 
         int j=0;
-        int flag=0;
+        Iterator<AirQualityDO> e = airQualityDOList.iterator();
         AirQualityDO temp = e.next();
         while(e.hasNext()&&j<7){
             aqi[j]=temp.getAqi();
