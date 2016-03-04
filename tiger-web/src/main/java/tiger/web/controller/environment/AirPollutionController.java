@@ -29,37 +29,52 @@ public class AirPollutionController {
 
         List arrays=new ArrayList();
         double smoke[]=new double[4];
+        double smoke1[]=new double[4];
+        Long air_pollution_source[]=new Long[4];
 
         int j=0;int a=0;int b=0;int c=0;int d=0;
         Iterator<AirPollutionDO> e = airPollutionDOList.iterator();
         AirPollutionDO temp = e.next();
         while(j<4&&e.hasNext()||a==0||b==0||c==0||d==0){
-            smoke[j]=temp.getSmoke();
             if(temp.getAir_pollution_source()==4022 && a==0){
-                temp.getSmoke();
+                smoke[j]=temp.getSmoke();
+                air_pollution_source[j]=temp.getAir_pollution_source();
                 a++;
                 j++;
             }
             if(temp.getAir_pollution_source()==4023 && b==0){
-                temp.getSmoke();
+                smoke[j]=temp.getSmoke();
+                air_pollution_source[j]=temp.getAir_pollution_source();
                 b++;
                 j++;
             }
             if(temp.getAir_pollution_source()==4024 && c==0){
-                temp.getSmoke();
+                smoke[j]=temp.getSmoke();
+                air_pollution_source[j]=temp.getAir_pollution_source();
                 c++;
                 j++;
             }
             if(temp.getAir_pollution_source()==4025 && d==0) {
-                temp.getSmoke();
+                smoke[j]=temp.getSmoke();
+                air_pollution_source[j]=temp.getAir_pollution_source();
                 d++;
                 j++;
             }
             temp=e.next();
         }
 
-
-        return new BaseResult(smoke);
+        for (int i = 0; i < 4; i++) {
+            if(air_pollution_source[i]==4022)
+                smoke1[0]=smoke[i];
+            if(air_pollution_source[i]==4023)
+                smoke1[1]=smoke[i];
+            if(air_pollution_source[i]==4024)
+                smoke1[2]=smoke[i];
+            if(air_pollution_source[i]==4025)
+                smoke1[3]=smoke[i];
+        }
+        arrays.add(smoke1);
+        return new BaseResult(arrays);
     }
 
 }
