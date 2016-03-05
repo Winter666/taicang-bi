@@ -23,7 +23,7 @@
         <result column="air_monitor" property="air_monitor" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
-        id,create_time,modify_time,date,hour,day,month,year,aqi,airQualityLevel,firstElement,co,no2,o3,pm10,pm25,so2,airMonitor
+        id,create_time,modify_time,date,hour,day,month,year,aqi,airQualityLevel,firstElement,co,no2,o3,pm10,pm25,so2,air_monitor
     </sql>
     <select id="getAirQualityData" resultMap="BaseResultMap">
         select * from air_quality_data
