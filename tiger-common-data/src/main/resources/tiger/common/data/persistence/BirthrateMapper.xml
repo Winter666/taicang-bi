@@ -8,9 +8,9 @@
         <result column="year" property="year" jdbcType="BIGINT" />
         <result column="town" property="town" jdbcType="VARCHAR" />
         <result column="town_id" property="town_id" jdbcType="BIGINT" />
-        <result column="bornPopulation" property="bornPopulation" jdbcType="BIGINT" />
-        <result column="deadPopulation" property="deadPopulation" jdbcType="BIGINT" />
-        <result column="population" property="population" jdbcType="BIGINT" />
+        <result column="bornPopulation" property="bornPopulation" jdbcType="FLOAT" />
+        <result column="deadPopulation" property="deadPopulation" jdbcType="FLOAT" />
+        <result column="population" property="population" jdbcType="FLOAT" />
     </resultMap>
     <sql id="Base_Column_List" >
         id, create_time, modify_time,year,town,town_id,bornPopulation,deadPopulation,population

@@ -9,11 +9,11 @@ public class BirthrateDO extends BaseDO {
 
     private int town_id;
     
-    private int bornPopulation;
+    private double bornPopulation;
     
-    private int deadPopulation;
+    private double deadPopulation;
     
-    private int population;
+    private double population;
 
     public char getTown() {
         return town;
@@ -35,7 +35,7 @@ public class BirthrateDO extends BaseDO {
         return bornPopulation;
     }
 
-    public void setBornPopulation(int bornPopulation) {
+    public void setBornPopulation(double bornPopulation) {
         this.bornPopulation = bornPopulation;
     }
 
@@ -43,7 +43,7 @@ public class BirthrateDO extends BaseDO {
         return deadPopulation;
     }
 
-    public void setDeadPopulation(int deadPopulation) {
+    public void setDeadPopulation(double deadPopulation) {
         this.deadPopulation = deadPopulation;
     }
       
@@ -51,7 +51,7 @@ public class BirthrateDO extends BaseDO {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(double population) {
         this.population = population;
     }
 
