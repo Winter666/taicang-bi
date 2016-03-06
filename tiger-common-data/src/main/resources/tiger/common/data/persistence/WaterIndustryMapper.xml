@@ -16,7 +16,8 @@
         id,create_time,modify_time,date,day,month,year,discharge,water_industry
     </sql>
     <select id="getWaterIndustryData" resultMap="BaseResultMap">
-        select * from water_industry_data
+               select * from water_industry_data
+         ORDER BY id DESC limit 35
     </select>
 
 </mapper>

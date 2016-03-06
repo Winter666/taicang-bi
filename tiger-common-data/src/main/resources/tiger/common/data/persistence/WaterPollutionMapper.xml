@@ -24,7 +24,7 @@
     <select id="getWaterPollutionDataForMap" resultMap="BaseResultMap">
         SELECT *
         FROM water_pollution_data
-        ORDER BY create_time DESC limit 9
+        SELECT * FROM `water_quality_data` ORDER BY id DESC limit 500;
     </select>
 
 </mapper>

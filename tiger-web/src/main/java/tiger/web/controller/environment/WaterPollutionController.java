@@ -69,7 +69,7 @@ public class WaterPollutionController {
         list.add(list4);
         list.add(list5);
   
-        
+        //cod溶解氧的最新一天数据
         ArrayList<Double> list6  = new ArrayList<Double>();
         ArrayList<Double> list7  = new ArrayList<Double>();
         ArrayList<Double> list8  = new ArrayList<Double>();
@@ -109,6 +109,88 @@ public class WaterPollutionController {
         list.add(list8);
         list.add(list9);
         list.add(list10);
+        
+        //氨氮浓度最新一天数据
+        ArrayList<Double> list11  = new ArrayList<Double>();
+        ArrayList<Double> list12  = new ArrayList<Double>();
+        ArrayList<Double> list13  = new ArrayList<Double>();
+        ArrayList<Double> list14  = new ArrayList<Double>();
+        ArrayList<Double> list15 = new ArrayList<Double>();
+        
+
+        for(int i = 0;i<waterPollutionDOList.size();i++)
+        {
+        	
+        	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
+        	switch (key) {
+			case 1:
+				list11.add(waterPollutionDOList.get(i).getNh4n());
+				break;
+			case 2:
+				list12.add(waterPollutionDOList.get(i).getNh4n());
+				break;
+			case 6:
+				list13.add(waterPollutionDOList.get(i).getNh4n());
+				break;
+			case 7:
+				list14.add(waterPollutionDOList.get(i).getNh4n());
+				break;
+			case 9:
+				list15.add(waterPollutionDOList.get(i).getNh4n());
+				break;
+
+			default:
+				break;
+			}
+        }
+        
+
+        list.add(list11);
+        list.add(list12);
+        list.add(list13);
+        list.add(list14);
+        list.add(list15);
+ 
+        //总磷浓度
+        ArrayList<Double> list16  = new ArrayList<Double>();
+        ArrayList<Double> list17  = new ArrayList<Double>();
+        ArrayList<Double> list18  = new ArrayList<Double>();
+        ArrayList<Double> list19  = new ArrayList<Double>();
+        ArrayList<Double> list20 = new ArrayList<Double>();
+        
+
+        for(int i = 0;i<waterPollutionDOList.size();i++)
+        {
+        	
+        	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
+        	switch (key) {
+			case 1:
+				list16.add(waterPollutionDOList.get(i).getP());
+				break;
+			case 2:
+				list17.add(waterPollutionDOList.get(i).getP());
+				break;
+			case 6:
+				list18.add(waterPollutionDOList.get(i).getP());
+				break;
+			case 7:
+				list19.add(waterPollutionDOList.get(i).getP());
+				break;
+			case 9:
+				list20.add(waterPollutionDOList.get(i).getP());
+				break;
+
+			default:
+				break;
+			}
+        }
+        
+
+        list.add(list16);
+        list.add(list17);
+        list.add(list18);
+        list.add(list19);
+        list.add(list20);
 
         return new BaseResult(list);
     }
