@@ -8,6 +8,8 @@ import tiger.core.service.population.PopulationStructurePreService;
 import tiger.common.data.dataobject.BirthrateDO;
 
 
+import tiger.common.data.dataobject.SumPopulationDO;
+
 import java.util.List;
 
 
@@ -20,6 +22,14 @@ public class PopulationStructurePreManager {
 	public List<PopulationStructurePreDO> getPopulationStructurePreData()
     {
        return populationStructurePreService.getPopulationStructurePreData();
+    }
+	
+	@Autowired
+    private PopulationStructurePreService sumPopulationService;
+	
+	public List<SumPopulationDO> getSumPopulationData()
+    {
+       return sumPopulationService.getSumPopulationData();
     }
 	
 	@Autowired

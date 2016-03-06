@@ -5,8 +5,11 @@ import org.springframework.stereotype.Service;
 
 import tiger.common.data.dataobject.BirthrateDO;
 import tiger.common.data.dataobject.PopulationStructurePreDO;
+import tiger.common.data.dataobject.SumPopulationDO;
 import tiger.common.data.persistence.PopulationStructurePreMapper;
 import tiger.common.data.persistence.BirthrateMapper;
+import tiger.common.data.persistence.SumPopulationMapper;
+
 
 
 import java.util.List;
@@ -20,6 +23,14 @@ public class PopulationStructurePreService {
     public List<PopulationStructurePreDO> getPopulationStructurePreData()
     {
         return populationStructurePreMapper.getPopulationStructurePreData();
+    }
+    
+    @Autowired
+    private SumPopulationMapper sumPopulationMapper;
+
+    public List<SumPopulationDO> getSumPopulationData()
+    {
+        return sumPopulationMapper.getSumPopulationData();
     }
     
     @Autowired
