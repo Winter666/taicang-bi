@@ -19,7 +19,7 @@ public class AirQualityPredictDO extends BaseDO {
 
     private double predictaqi;
 
-    private double predictairQualityLevel;
+    private int predictairQualityLevel;
 
     private double predictfirstElement;
 
@@ -83,11 +83,11 @@ public class AirQualityPredictDO extends BaseDO {
         this.predictaqi = predictaqi;
     }
 
-    public double getPredictairQualityLevel() {
+    public int getPredictairQualityLevel() {
         return predictairQualityLevel;
     }
 
-    public void setPredictairQualityLevel(double predictairQualityLevel) {
+    public void setPredictairQualityLevel(int predictairQualityLevel) {
         this.predictairQualityLevel = predictairQualityLevel;
     }
 

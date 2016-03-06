@@ -29,10 +29,10 @@ public class AirQualityController {
         List<AirQualityDO> airQualityDOList = airQualityManager.getAirQualityData();
 
         List arrays=new ArrayList();
-        int aqi[]=new int[7];
-        int aqi1[]=new int[7];
-        int predictaqi[]= new int[7];
-        int predictaqi1[]= new int[7];
+        double aqi[]=new double[7];
+        double aqi1[]=new double[7];
+        double predictaqi[]= new double[7];
+        double predictaqi1[]= new double[7];
         int day[]=new int[7];
         int day1[]=new int[7];
         int month[]=new int[7];

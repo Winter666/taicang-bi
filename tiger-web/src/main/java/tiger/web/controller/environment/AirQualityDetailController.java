@@ -29,25 +29,52 @@ public class AirQualityDetailController {
         List<AirQualityDO> airQualityDOList = airQualityManager.getAirQualityData();
 
         List arrays=new ArrayList();
-        int line_aqi[]=new int[12];
+        double line_aqi[]=new double[12];
         double line_pm25[]=new double[12];
+        double line_pm10[]=new double[12];
+        double line_so2[]=new double[12];
+        double line_no2[]=new double[12];
+        double line_co[]=new double[12];
+        double line_o3[]=new double[12];
+        double gauge[]=new double[7];
 
         int j=0;
         Iterator<AirQualityDO> e = airQualityDOList.iterator();
         AirQualityDO temp = e.next();
 
+        for (int i = 0; i < 7; i++) {
+            gauge[0]=temp.getAqi();
+            gauge[1]=temp.getPm25();
+            gauge[2]=temp.getPm10();
+            gauge[3]=temp.getSo2();
+            gauge[4]=temp.getNo2();
+            gauge[5]=temp.getCo();
+            gauge[6]=temp.getO3();
+        }
+
         while(e.hasNext()&&temp.getHour()!=9){
             temp=e.next();
         }
         for (int i = 0; i < 12; i++) {
-            line_aqi[11-i]=temp.getAqi();
-            line_pm25[11-i]=temp.getPm25();
-            temp=e.next();
+            line_aqi[11 - i] = temp.getAqi();
+            line_pm25[11 - i] = temp.getPm25();
+            line_pm10[11 - i] = temp.getPm10();
+            line_so2[11 - i] = temp.getSo2();
+            line_no2[11 - i] = temp.getNo2();
+            line_co[11 - i] = temp.getCo();
+            line_o3[11 - i] = temp.getO3();
+            temp = e.next();
 
         }
 
         arrays.add(line_aqi);
         arrays.add(line_pm25);
+        arrays.add(line_pm10);
+        arrays.add(line_so2);
+        arrays.add(line_no2);
+        arrays.add(line_co);
+        arrays.add(line_o3);
+        arrays.add(gauge);
         return new BaseResult(arrays);
     }
 
