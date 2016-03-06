@@ -32,9 +32,11 @@ public class WaterPollutionController {
 		Date date=waterPollutionDOList.get(0).getDate();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new java.util.Date(date.getTime()));
+		String datetime[]=new String[1];
+		datetime[0]=cal.get(Calendar.YEAR) + "年" + (cal.get(Calendar.MONTH)+1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日" + 9 + "时";
+
 
 		String date1[]=new String[6];
-
 		for (int i = 0; i < 6; i++) {
 			date1[5-i]=waterPollutionDOList.get(i*5).getMonth() + "月" + waterPollutionDOList.get(i*5).getDay() + "日";
 		}
@@ -199,7 +201,7 @@ public class WaterPollutionController {
         list.add(list18);
         list.add(list19);
         list.add(list20);
-		list.add(cal.get(Calendar.YEAR) + "年" + (cal.get(Calendar.MONTH)+1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日" + 9 + "时");
+		list.add(datetime);
 		list.add(date1);
 		return new BaseResult(list);
     }

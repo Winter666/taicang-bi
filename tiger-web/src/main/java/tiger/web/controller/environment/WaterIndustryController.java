@@ -26,8 +26,12 @@ public class WaterIndustryController {
     {
         List<WaterIndustryDO> waterIndustryDOList = waterIndustryManager.getWaterIndustryData();
 
-//        System.out.println(waterIndustryDOList.get(0).getDischarge());
-        
+        String date[]=new String[7];
+        for (int i = 0; i < 7; i++) {
+            date[6-i]=waterIndustryDOList.get(i*5).getMonth() + "月" + waterIndustryDOList.get(i*5).getDay() + "日";
+        }
+
+
         ArrayList<Double> list11  = new ArrayList<Double>();
         ArrayList<Double> list12  = new ArrayList<Double>();
         ArrayList<Double> list13  = new ArrayList<Double>();
@@ -67,7 +71,7 @@ public class WaterIndustryController {
         list.add(list13);
         list.add(list14);
         list.add(list15);
-  
+        list.add(date);
         return new BaseResult(list);
     }
 
