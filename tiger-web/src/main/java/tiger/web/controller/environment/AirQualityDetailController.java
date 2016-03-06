@@ -30,26 +30,24 @@ public class AirQualityDetailController {
 
         List arrays=new ArrayList();
         int line_aqi[]=new int[12];
+        double line_pm25[]=new double[12];
 
         int j=0;
         Iterator<AirQualityDO> e = airQualityDOList.iterator();
         AirQualityDO temp = e.next();
 
-        Date date=temp.getDate();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.DATE, -1);
-        date=new Date(cal.getTime().getTime());
         while(e.hasNext()&&temp.getHour()!=9){
             temp=e.next();
         }
         for (int i = 0; i < 12; i++) {
             line_aqi[11-i]=temp.getAqi();
+            line_pm25[11-i]=temp.getPm25();
             temp=e.next();
 
         }
 
         arrays.add(line_aqi);
+        arrays.add(line_pm25);
         return new BaseResult(arrays);
     }
 
