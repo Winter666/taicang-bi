@@ -10,7 +10,9 @@ import tiger.common.data.dataobject.AirQualityDO;
 import tiger.common.data.dataobject.WaterPollutionDO;
 import tiger.core.base.BaseResult;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,10 +27,19 @@ public class WaterPollutionController {
     public BaseResult getWaterPollutionData()
     {
         List<WaterPollutionDO> waterPollutionDOList = waterPollutionManager.getWaterPollutionData();
-        
-       System.out.println(waterPollutionDOList.size());
+//		System.out.println(waterPollutionDOList.size());
 
+		Date date=waterPollutionDOList.get(0).getDate();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new java.util.Date(date.getTime()));
 
+		String date1[]=new String[6];
+
+		for (int i = 0; i < 6; i++) {
+			date1[5-i]=waterPollutionDOList.get(i*5).getMonth() + "月" + waterPollutionDOList.get(i*5).getDay() + "日";
+		}
+
+		List  list = new ArrayList();
         ArrayList<Double> list1  = new ArrayList<Double>();
         ArrayList<Double> list2  = new ArrayList<Double>();
         ArrayList<Double> list3  = new ArrayList<Double>();
@@ -61,8 +72,7 @@ public class WaterPollutionController {
 				break;
 			}
         }
-        
-        List  list = new ArrayList<>();
+
         list.add(list1);
         list.add(list2);
         list.add(list3);
@@ -179,20 +189,19 @@ public class WaterPollutionController {
 			case 9:
 				list20.add(waterPollutionDOList.get(i).getP());
 				break;
-
 			default:
 				break;
 			}
         }
-        
 
         list.add(list16);
         list.add(list17);
         list.add(list18);
         list.add(list19);
         list.add(list20);
-
-        return new BaseResult(list);
+		list.add(cal.get(Calendar.YEAR) + "年" + (cal.get(Calendar.MONTH)+1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日" + 9 + "时");
+		list.add(date1);
+		return new BaseResult(list);
     }
 
 	//水质监测站及其附近污水处理厂查看所需数据
