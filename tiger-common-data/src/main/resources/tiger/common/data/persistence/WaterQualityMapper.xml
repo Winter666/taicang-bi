@@ -21,7 +21,7 @@
         id,create_time,modify_time,date,hour,day,month,year,kmno4,nh4n,o2,p,tn,water_monitor
     </sql>
     <select id="getWaterQualityData" resultMap="BaseResultMap">
-        select * from water_quality_data
+       SELECT * FROM `water_quality_data` ORDER BY id DESC limit 500;
     </select>
 
 </mapper>
