@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-</beans>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.RoleMapper" >
+    <resultMap id="RoleResultMap" type="tiger.common.data.dataobject.account.RoleDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <select id="findByAccountId" resultMap="RoleResultMap">
+        <!--通过账户的id查询账户的角色-->
+        select *
+        from role r
+        left join account_role ar
+        on r.id = ar.role_id
+        where ar.account_id=#{accountId}
+    </select>
+</mapper>

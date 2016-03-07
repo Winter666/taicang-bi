@@ -1,6 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-</beans>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.data.persistence.SystemParamsMapper" >
+    <resultMap id="SystemParamsResultMap" type="tiger.common.data.dataobject.account.SystemParamsDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="param_name" property="paramName" jdbcType="VARCHAR" />
+        <result column="param_value" property="paramValue" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="is_active" property="isActive" jdbcType="TINYINT" />
+        <result column="param_type" property="paramType" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, param_name, param_value, create_time, update_time, is_active, param_type
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="SystemParamsResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from system_params
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from system_params
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="tiger.common.data.dataobject.account.SystemParamsDO" useGeneratedKeys="true" keyProperty="id" >
+        insert into system_params (param_name, param_value, create_time,
+        update_time, is_active, param_type
+        )
+        values (#{paramName,jdbcType=VARCHAR}, #{paramValue,jdbcType=VARCHAR}, CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP, #{isActive,jdbcType=TINYINT}, #{paramType,jdbcType=VARCHAR}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="tiger.common.data.dataobject.account.SystemParamsDO" >
+        update system_params
+        set param_name = #{paramName,jdbcType=VARCHAR},
+        param_value = #{paramValue,jdbcType=VARCHAR},
+        update_time = CURRENT_TIMESTAMP,
+        is_active = #{isActive,jdbcType=TINYINT},
+        param_type = #{paramType,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

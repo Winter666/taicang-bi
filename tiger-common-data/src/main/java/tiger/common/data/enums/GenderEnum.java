@@ -4,7 +4,6 @@
  */
 package tiger.common.data.enums;
 
-import tiger.common.data.enums.BaseEnum;
 
 /**
  * Created by Bongo on 16/3/8.
@@ -12,6 +11,11 @@ import tiger.common.data.enums.BaseEnum;
 public enum GenderEnum implements BaseEnum{
 
     MALE("MALE","男"),FEMALE("FEMALE","女");
+
+    GenderEnum(String code, String value) {
+        this.code = code;
+        this.value = value;
+    }
 
     private String code;
 
@@ -35,6 +39,21 @@ public enum GenderEnum implements BaseEnum{
     @Override
     public void setValue(String value) {
         this.value = value;
+    }
+
+    /**
+     * 通过<code>code</code>获取完整枚举
+     *
+     * @param code
+     * @return
+     */
+    public static GenderEnum getEnumByCode(String code) {
+        for (GenderEnum bt : GenderEnum.values()) {
+            if (bt.getCode().equals(code)) {
+                return bt;
+            }
+        }
+        return null;
     }
 
 }
