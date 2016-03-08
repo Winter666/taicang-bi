@@ -42,9 +42,9 @@ public class AccountDomain extends BaseDomain
     @CopyIgnore
     private List<PermissionDomain> permissions;
 
-    private Date createTime;
+    private Date create_time;
 
-    private Date updateTime;
+    private Date modify_time;
 
     @CopyIgnore
     private HashMap<String, String> extParams;
@@ -105,20 +105,20 @@ public class AccountDomain extends BaseDomain
         this.permissions = permissions;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getModify_time() {
+        return modify_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setModify_time(Date modify_time) {
+        this.modify_time = modify_time;
     }
 
     public HashMap<String, String> getExtParams() {

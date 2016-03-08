@@ -4,8 +4,8 @@
     <resultMap id="RoleResultMap" type="tiger.common.data.dataobject.account.RoleDO" >
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="modify_time" jdbcType="TIMESTAMP" />
     </resultMap>
     <select id="findByAccountId" resultMap="RoleResultMap">
         <!--通过账户的id查询账户的角色-->

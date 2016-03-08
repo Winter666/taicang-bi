@@ -25,7 +25,7 @@ public class AccountLoginLogDomain extends BaseDomain
 
     private String token;
 
-    private Date createTime;
+    private Date create_time;
 
     private Date expireTime;
 
@@ -64,12 +64,12 @@ public class AccountLoginLogDomain extends BaseDomain
         this.token = token;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
     public Date getExpireTime() {

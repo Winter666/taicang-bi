@@ -2,7 +2,7 @@
  * 310 Inc.
  * All Right Reserved.
  */
-package tiger.common.data.persistence.account;
+package tiger.common.data.persistence;
 
 import org.apache.ibatis.annotations.Param;
 import tiger.common.data.dataobject.account.RoleDO;

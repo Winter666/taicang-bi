@@ -21,21 +21,21 @@ public interface AccountManager {
      * */
     AccountDomain signin(String account,String password);
 
-    /**
-     * 通过token获取账户信息
-     *
-     * @param token
-     * @return
-     * */
-    AccountDomain signinByToken(String token);
-
-    /**
-     * 为登录用户创建一个n天后过期的token
-     *
-     * @param accountLoginLogDomain
-     * @param expireDay
-     * @return
-     * */
-    String createToken(AccountLoginLogDomain accountLoginLogDomain,int expireDay);
+//    /**
+//     * 通过token获取账户信息
+//     *
+//     * @param token
+//     * @return
+//     * */
+//    AccountDomain signinByToken(String token);
+//
+//    /**
+//     * 为登录用户创建一个n天后过期的token
+//     *
+//     * @param accountLoginLogDomain
+//     * @param expireDay
+//     * @return
+//     * */
+//    String createToken(AccountLoginLogDomain accountLoginLogDomain,int expireDay);
 
 }

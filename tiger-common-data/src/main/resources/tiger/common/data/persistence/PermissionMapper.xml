@@ -6,8 +6,8 @@
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="system" property="system" jdbcType="VARCHAR" />
         <result column="operation" property="operation" jdbcType="VARCHAR" />
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="modify_time" jdbcType="TIMESTAMP" />
     </resultMap>
     <sql id="BaseColumnList" >
         id, name, operation, system, create_time, update_time

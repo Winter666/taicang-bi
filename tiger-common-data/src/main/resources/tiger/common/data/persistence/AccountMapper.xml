@@ -3,8 +3,8 @@
 <mapper namespace="tiger.common.data.persistence.AccountMapper" >
     <resultMap id="BaseResultMap" type="tiger.common.data.dataobject.account.AccountDO" >
         <id column="id" property="id" jdbcType="BIGINT" />
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="modify_time" jdbcType="TIMESTAMP" />
         <result column="account" property="account" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
@@ -52,4 +52,10 @@
         ext_params = #{extParams,jdbcType=VARCHAR}
         where id = #{id,jdbcType=BIGINT}
     </update>
+    <select id="selectByAccount" resultMap="BaseResultMap" parameterType="String">
+        select
+        <include refid="Base_Column_List" />
+        from account a
+        where a.account = #{account}
+    </select>
 </mapper>
