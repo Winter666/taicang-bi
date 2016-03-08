@@ -6,6 +6,7 @@ package tiger.web.base;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 /**
@@ -19,5 +20,10 @@ public class TigerWebMain extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         new SpringApplication(TigerWebMain.class).run(args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(TigerWebConfig.class, TigerWebMain.class);
     }
 }
