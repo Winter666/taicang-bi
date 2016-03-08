@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by Bongo on 16/3/9.
  */
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/api/account")
 public class AccountController extends BaseController{
 
     @Autowired
