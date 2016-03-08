@@ -29,7 +29,7 @@ public class AccountDO extends BaseDO
     private String gender;
 
     @CopyIgnore
-    private String extParams;
+    private String extParams;/*自定义参数,格式类json*/
 
     @CopyIgnore
     private String icon;
