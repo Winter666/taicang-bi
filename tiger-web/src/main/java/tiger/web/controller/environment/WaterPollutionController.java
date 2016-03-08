@@ -42,11 +42,11 @@ public class WaterPollutionController {
 		}
 
 		List  list = new ArrayList();
-        ArrayList<Double> list1  = new ArrayList<Double>();
-        ArrayList<Double> list2  = new ArrayList<Double>();
-        ArrayList<Double> list3  = new ArrayList<Double>();
-        ArrayList<Double> list4  = new ArrayList<Double>();
-        ArrayList<Double> list5 = new ArrayList<Double>();
+        ArrayList<Double> JiuLONGDischarge  = new ArrayList<Double>();
+        ArrayList<Double> TCCityzoneDischarge  = new ArrayList<Double>();
+        ArrayList<Double> LiuHeDischarge  = new ArrayList<Double>();
+        ArrayList<Double> GangChengDischarge  = new ArrayList<Double>();
+        ArrayList<Double> TCRivertownDischarge = new ArrayList<Double>();
         
 
         for(int i = 0;i<waterPollutionDOList.size();i++)
@@ -55,19 +55,19 @@ public class WaterPollutionController {
         	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
         	switch (key) {
 			case 1:
-				list1.add(waterPollutionDOList.get(i).getDischarge());
+				JiuLONGDischarge.add(waterPollutionDOList.get(i).getDischarge());
 				break;
 			case 2:
-				list2.add(waterPollutionDOList.get(i).getDischarge());
+				TCCityzoneDischarge.add(waterPollutionDOList.get(i).getDischarge());
 				break;
 			case 6:
-				list3.add(waterPollutionDOList.get(i).getDischarge());
+				LiuHeDischarge.add(waterPollutionDOList.get(i).getDischarge());
 				break;
 			case 7:
-				list4.add(waterPollutionDOList.get(i).getDischarge());
+				GangChengDischarge.add(waterPollutionDOList.get(i).getDischarge());
 				break;
 			case 9:
-				list5.add(waterPollutionDOList.get(i).getDischarge());
+				TCRivertownDischarge.add(waterPollutionDOList.get(i).getDischarge());
 				break;
 
 			default:
@@ -75,18 +75,18 @@ public class WaterPollutionController {
 			}
         }
 
-        list.add(list1);
-        list.add(list2);
-        list.add(list3);
-        list.add(list4);
-        list.add(list5);
+        list.add(JiuLONGDischarge);
+        list.add(TCCityzoneDischarge);
+        list.add(LiuHeDischarge);
+        list.add(GangChengDischarge);
+        list.add(TCRivertownDischarge);
   
         //cod溶解氧的最新一天数据
-        ArrayList<Double> list6  = new ArrayList<Double>();
-        ArrayList<Double> list7  = new ArrayList<Double>();
-        ArrayList<Double> list8  = new ArrayList<Double>();
-        ArrayList<Double> list9  = new ArrayList<Double>();
-        ArrayList<Double> list10 = new ArrayList<Double>();
+        ArrayList<Double> JiuLONGCod  = new ArrayList<Double>();
+        ArrayList<Double> TCCityzoneCod  = new ArrayList<Double>();
+        ArrayList<Double> LiuHeCod  = new ArrayList<Double>();
+        ArrayList<Double> GangChengCod  = new ArrayList<Double>();
+        ArrayList<Double> TCRivertownCod = new ArrayList<Double>();
         
 
         for(int i = 0;i<waterPollutionDOList.size();i++)
@@ -95,19 +95,19 @@ public class WaterPollutionController {
         	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
         	switch (key) {
 			case 1:
-				list6.add(waterPollutionDOList.get(i).getCod());
+				JiuLONGCod .add(waterPollutionDOList.get(i).getCod());
 				break;
 			case 2:
-				list7.add(waterPollutionDOList.get(i).getCod());
+				TCCityzoneCod.add(waterPollutionDOList.get(i).getCod());
 				break;
 			case 6:
-				list8.add(waterPollutionDOList.get(i).getCod());
+				LiuHeCod.add(waterPollutionDOList.get(i).getCod());
 				break;
 			case 7:
-				list9.add(waterPollutionDOList.get(i).getCod());
+				GangChengCod.add(waterPollutionDOList.get(i).getCod());
 				break;
 			case 9:
-				list10.add(waterPollutionDOList.get(i).getCod());
+				TCRivertownCod.add(waterPollutionDOList.get(i).getCod());
 				break;
 
 			default:
@@ -116,18 +116,18 @@ public class WaterPollutionController {
         }
         
 
-        list.add(list6);
-        list.add(list7);
-        list.add(list8);
-        list.add(list9);
-        list.add(list10);
+        list.add(JiuLONGCod);
+        list.add(TCCityzoneCod);
+        list.add(LiuHeCod);
+        list.add(GangChengCod);
+        list.add(TCRivertownCod);
         
         //氨氮浓度最新一天数据
-        ArrayList<Double> list11  = new ArrayList<Double>();
-        ArrayList<Double> list12  = new ArrayList<Double>();
-        ArrayList<Double> list13  = new ArrayList<Double>();
-        ArrayList<Double> list14  = new ArrayList<Double>();
-        ArrayList<Double> list15 = new ArrayList<Double>();
+        ArrayList<Double> JiuLONGNh4n  = new ArrayList<Double>();
+        ArrayList<Double> TCCityzoneNh4n   = new ArrayList<Double>();
+        ArrayList<Double> LiuHeNh4n   = new ArrayList<Double>();
+        ArrayList<Double> GangChengNh4n   = new ArrayList<Double>();
+        ArrayList<Double> TCRivertownNh4n  = new ArrayList<Double>();
         
 
         for(int i = 0;i<waterPollutionDOList.size();i++)
@@ -136,19 +136,19 @@ public class WaterPollutionController {
         	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
         	switch (key) {
 			case 1:
-				list11.add(waterPollutionDOList.get(i).getNh4n());
+				JiuLONGNh4n.add(waterPollutionDOList.get(i).getNh4n());
 				break;
 			case 2:
-				list12.add(waterPollutionDOList.get(i).getNh4n());
+				TCCityzoneNh4n.add(waterPollutionDOList.get(i).getNh4n());
 				break;
 			case 6:
-				list13.add(waterPollutionDOList.get(i).getNh4n());
+				LiuHeNh4n.add(waterPollutionDOList.get(i).getNh4n());
 				break;
 			case 7:
-				list14.add(waterPollutionDOList.get(i).getNh4n());
+				GangChengNh4n.add(waterPollutionDOList.get(i).getNh4n());
 				break;
 			case 9:
-				list15.add(waterPollutionDOList.get(i).getNh4n());
+				TCRivertownNh4n.add(waterPollutionDOList.get(i).getNh4n());
 				break;
 
 			default:
@@ -157,18 +157,18 @@ public class WaterPollutionController {
         }
         
 
-        list.add(list11);
-        list.add(list12);
-        list.add(list13);
-        list.add(list14);
-        list.add(list15);
+        list.add(JiuLONGNh4n);
+        list.add(TCCityzoneNh4n);
+        list.add(LiuHeNh4n);
+        list.add(GangChengNh4n);
+        list.add(TCRivertownNh4n);
  
         //总磷浓度
-        ArrayList<Double> list16  = new ArrayList<Double>();
-        ArrayList<Double> list17  = new ArrayList<Double>();
-        ArrayList<Double> list18  = new ArrayList<Double>();
-        ArrayList<Double> list19  = new ArrayList<Double>();
-        ArrayList<Double> list20 = new ArrayList<Double>();
+        ArrayList<Double> JiuLONGP  = new ArrayList<Double>();
+        ArrayList<Double> TCCityzoneP   = new ArrayList<Double>();
+        ArrayList<Double> LiuHeP   = new ArrayList<Double>();
+        ArrayList<Double> GangChengP   = new ArrayList<Double>();
+        ArrayList<Double> TCRivertownP  = new ArrayList<Double>();
         
 
         for(int i = 0;i<waterPollutionDOList.size();i++)
@@ -177,30 +177,30 @@ public class WaterPollutionController {
         	int key  = waterPollutionDOList.get(i).getWater_pollution_source().intValue()%10;
         	switch (key) {
 			case 1:
-				list16.add(waterPollutionDOList.get(i).getP());
+				JiuLONGP.add(waterPollutionDOList.get(i).getP());
 				break;
 			case 2:
-				list17.add(waterPollutionDOList.get(i).getP());
+				TCCityzoneP.add(waterPollutionDOList.get(i).getP());
 				break;
 			case 6:
-				list18.add(waterPollutionDOList.get(i).getP());
+				LiuHeP.add(waterPollutionDOList.get(i).getP());
 				break;
 			case 7:
-				list19.add(waterPollutionDOList.get(i).getP());
+				GangChengP.add(waterPollutionDOList.get(i).getP());
 				break;
 			case 9:
-				list20.add(waterPollutionDOList.get(i).getP());
+				TCRivertownP.add(waterPollutionDOList.get(i).getP());
 				break;
 			default:
 				break;
 			}
         }
 
-        list.add(list16);
-        list.add(list17);
-        list.add(list18);
-        list.add(list19);
-        list.add(list20);
+        list.add(JiuLONGP);
+        list.add(TCCityzoneP);
+        list.add(LiuHeP);
+        list.add(GangChengP);
+        list.add(TCRivertownP);
 		list.add(datetime);
 		list.add(date1);
 		return new BaseResult(list);
