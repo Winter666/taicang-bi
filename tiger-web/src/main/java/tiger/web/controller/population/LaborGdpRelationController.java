@@ -24,7 +24,7 @@ public class LaborGdpRelationController {
     {
         List<LaborGdpRelationPreDO> laborGdpRelationPreDOList = laborGdpRelationPreManager.getLaborGdpRelationPreData();
 
-        System.out.println(laborGdpRelationPreDOList.get(1).getPreyear());
+      //  System.out.println(laborGdpRelationPreDOList.get(1).getPreyear());
 
         return new BaseResult(laborGdpRelationPreDOList);
     }

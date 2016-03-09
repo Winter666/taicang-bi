@@ -25,7 +25,7 @@ public class PopulationStructureController {
 	    {
 	        List<PopulationStructurePreDO> populationStructurePreDOList = populationStructurePreManager.getPopulationStructurePreData();
 
-	        System.out.println(populationStructurePreDOList.get(0).getSexType_id());
+	      //  System.out.println(populationStructurePreDOList.get(0).getSexType_id());
 	       
 
 	        return new BaseResult(populationStructurePreDOList);
@@ -39,7 +39,7 @@ public class PopulationStructureController {
 	    {
 	        List<SumPopulationDO> sumPopulationList = sumPopulationManager.getSumPopulationData();
 
-	        System.out.println(sumPopulationList.get(0).getSumPopulation());
+	       // System.out.println(sumPopulationList.get(0).getSumPopulation());
 
 	        return new BaseResult(sumPopulationList);
 	    }
@@ -52,7 +52,7 @@ public class PopulationStructureController {
 	    {
 	        List<BirthrateDO> birthrateDOList = birthrateManager.getBirthrateData();
 
-	        System.out.println(birthrateDOList.get(0).getPopulation());
+	       // System.out.println(birthrateDOList.get(0).getPopulation());
 
 	        return new BaseResult(birthrateDOList);
 	    }
