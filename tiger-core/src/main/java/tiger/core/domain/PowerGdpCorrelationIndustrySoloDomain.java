@@ -4,10 +4,12 @@
  */
 package tiger.core.domain;
 
+import tiger.core.base.PowerGdpCorrelationBaseDomain;
+
 /**
  * Created by Bongo on 16/3/3.
  */
-public class PowerGdpCorrelationIndustrySoloDomain {
+public class PowerGdpCorrelationIndustrySoloDomain extends PowerGdpCorrelationBaseDomain {
 
     /**
      * 行业代号 300开头

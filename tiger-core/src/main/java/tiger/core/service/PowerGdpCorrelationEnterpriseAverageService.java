@@ -27,11 +27,11 @@ public class PowerGdpCorrelationEnterpriseAverageService {
     @Autowired
     private PowerGdpCorrelationEnterpriseSoloMapper powerGdpCorrelationEnterpriseSoloMapper;
 
-    public List<PowerGdpCorrelationEnterpriseAverageDomain> getPowerGdpCorrelationnterpriseAverageDomainList(){
+    public List<PowerGdpCorrelationEnterpriseAverageDomain> getPowerGdpCorrelationEnterpriseAverageDomainList(){
         return PowerGdpCorrelationEnterpriseAverageConverter.convertByList(pgceam.getPowerGdpCorrelationEnterpriseAverageDOList());
     }
 
-    public List<PowerGdpCorrelationEnterpriseSoloDomain> getPowerGdpCorrelationnterpriseSoloDomainList(){
+    public List<PowerGdpCorrelationEnterpriseSoloDomain> getPowerGdpCorrelationEnterpriseSoloDomainList(){
 
         return PowerGdpCorrelationEnterpriseSoloConverter.convertByList(powerGdpCorrelationEnterpriseSoloMapper.getPowerGdpCorrelationEnterpriseSoloDOList());
 

@@ -14,6 +14,7 @@ import java.util.*;
  * Created by Bongo on 16/3/2.
  */
 public class PowerGdpCorrelationIndustryConverter {
+    private PowerGdpCorrelationIndustryConverter(){}
 
     public static List<PowerGdpCorrelationIndustryDomain> convertByList(List<PowerGdpCorrelationIndustryDO> dos){
 

@@ -59,7 +59,7 @@ public class PowerGdpCorrelationEnterpriseAverageManager {
      * @return PowerGdpCorrelationDomainList
      * */
     private List<PowerGdpCorrelationEnterpriseAverageDomain> getPowerGdpCorrelationEnterpriseAverageDomainList(){
-        return pgcs.getPowerGdpCorrelationnterpriseAverageDomainList();
+        return pgcs.getPowerGdpCorrelationEnterpriseAverageDomainList();
     }
 
 }

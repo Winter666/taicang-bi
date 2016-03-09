@@ -106,7 +106,7 @@ public class PowerGdpCorrelationEnterpriseSoloManager {
      * @return PowerGdpCorrelationDomainList
      * */
     public List<PowerGdpCorrelationEnterpriseSoloDomain> getPowerGdpCorrelationEnterpriseSoloDomainList(){
-        return powerGdpCorrelationEnterpriseAverageService.getPowerGdpCorrelationnterpriseSoloDomainList();
+        return powerGdpCorrelationEnterpriseAverageService.getPowerGdpCorrelationEnterpriseSoloDomainList();
     }
 
 }
