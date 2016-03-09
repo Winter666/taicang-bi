@@ -4,12 +4,15 @@
  */
 package tiger.common.data.dataobject;
 
+import java.io.Serializable;
+
 /**
  * Created by Bongo on 2016/3/1.
  */
 public class PowerGdpCorrelationDO extends BaseDO
-                    implements Comparable<PowerGdpCorrelationDO>{
+                    implements Comparable<PowerGdpCorrelationDO>,Serializable{
 
+    private static final long serialVersionUID = -1149468663018785669L;
     /**
      * 数据所属年份
      * */
@@ -107,12 +110,7 @@ public class PowerGdpCorrelationDO extends BaseDO
     * */
     @Override
     public int compareTo(PowerGdpCorrelationDO target){
-
-        int thisYear = this.getYear();
-
-        int targetYear = target.getYear();
-
-        return thisYear>targetYear? 1:-1;//正序
+        return this.getYear()>target.getYear()? 1:-1;//正序
     }
 
     @Override

@@ -107,12 +107,7 @@ public class PowerGdpCorrelationEnterpriseAverageDO extends BaseDO
     * */
     @Override
     public int compareTo(PowerGdpCorrelationEnterpriseAverageDO target){
-
-        int thisYear = this.getYear();
-
-        int targetYear = target.getYear();
-
-        return thisYear>targetYear? 1:-1;//正序
+        return this.getYear()>target.getYear()? 1:-1;//正序
     }
 
 }

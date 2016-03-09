@@ -4,6 +4,8 @@
  */
 package tiger.common.data.dataobject;
 
+import static tiger.common.data.util.CompareTo.compareDO;
+
 /**
  * Created by Bongo on 16/3/4.
  */
@@ -87,32 +89,7 @@ public class PowerGdpCorrelationEnterpriseSoloDO extends BaseDO
      * */
     @Override
     public int compareTo(PowerGdpCorrelationEnterpriseSoloDO target){
-
-        int thisYear = this.getYear();
-
-        int thisId = this.getEnterpriseId();
-
-        int targetYear = target.getYear();
-
-        int targetId = target.getEnterpriseId();
-
-        int targetSeason =target.getSeason();
-
-        int thisSeason = this.getSeason();
-
-        /*
-        * ......留待抽取
-        * */
-        if(thisYear>targetYear)
-            return 1;
-        else if(thisYear<targetYear)
-            return -1;
-        else{
-            if (thisId>targetId) return 1;
-            else if(thisId<targetId)return -1;
-            else if(thisSeason>targetSeason) return 1;
-            else return -1;
-        }
+        return compareDO(this,target);
     }
 
 }

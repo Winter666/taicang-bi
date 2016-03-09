@@ -4,24 +4,52 @@
  */
 package tiger.common.data.dataobject;
 
+import java.io.Serializable;
+
+import static tiger.common.data.util.CompareTo.compareDO;
+
 /**
  * Created by Bongo on 16/3/2.
  */
 public class PowerGdpCorrelationIndustryDO extends BaseDO
-                 implements Comparable<PowerGdpCorrelationIndustryDO>{
+                 implements Comparable<PowerGdpCorrelationIndustryDO>,Serializable{
 
+    private static final long serialVersionUID = 4344349661067440923L;
+
+    /**
+     * 数据所属年份
+     * */
     private int year;
 
+    /**
+     * 数据所属季度
+     * 当season=0时表示一年的总数据
+     * */
     private int season;
 
+    /**
+     * 行业字典码
+     * */
     private int industryId;
 
+    /**
+     * 工业用电量真实值
+     * */
     private double realIndustryPower;
 
+    /**
+     * 工业用电量预测值
+     * */
     private double forcastIndustryPower;
 
+    /**
+     * GDP真实值
+     * */
     private double realIndustryGdp;
 
+    /**
+     * GDP预测值
+     * */
     private double forcastIndustryGdp;
 
     public double getForcastIndustryPower() {
@@ -88,29 +116,7 @@ public class PowerGdpCorrelationIndustryDO extends BaseDO
      * */
     @Override
     public int compareTo(PowerGdpCorrelationIndustryDO target){
-
-        int thisYear = this.getYear();
-
-        int thisId = this.getIndustryId();
-
-        int targetYear = target.getYear();
-
-        int targetId = target.getIndustryId();
-
-        int targetSeason =target.getSeason();
-
-        int thisSeason = this.getSeason();
-
-        if(thisYear>targetYear)
-            return 1;
-        else if(thisYear<targetYear)
-            return -1;
-        else{
-            if (thisId>targetId) return 1;
-            else if(thisId<targetId)return -1;
-            else if(thisSeason>targetSeason) return 1;
-            else return -1;
-        }
+        return compareDO(this,target);
     }
 
 }
