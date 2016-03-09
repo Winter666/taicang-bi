@@ -3,6 +3,7 @@ package tiger.web.controller.economy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tiger.biz.economy.support.GdpForecastManager;
 import tiger.common.data.dataobject.GdpForecastDO;
@@ -24,9 +25,10 @@ public class GdpForecastController {
     @Autowired
     private GdpForecastManager gdpForecastManager;
 
-    @RequestMapping(value="/api/predictData/gdpForecastData/list", method = RequestMethod.GET)
-    public BaseResult getGdpForecastData()
+    @RequestMapping(value="/api/predictData/gdpForecastData/*", method = RequestMethod.GET)
+    public BaseResult getGdpForecastData(@RequestParam(value="year",defaultValue ="2016") int year)
     {
+        System.out.println(year);
         List<GdpForecastDO> gdpForecastDOList = gdpForecastManager.getGdpForecastData();
 
         List<double[]> arrays=new ArrayList<double[]>();
@@ -52,8 +54,8 @@ public class GdpForecastController {
         Iterator<GdpForecastDO> e = gdpForecastDOList.iterator();
 
         int j=0;
-        Calendar a= Calendar.getInstance();
-        int year=a.get(Calendar.YEAR);
+//        Calendar a= Calendar.getInstance();
+//        int year=a.get(Calendar.YEAR);
 
         while(e.hasNext()){
             GdpForecastDO temp = e.next();
