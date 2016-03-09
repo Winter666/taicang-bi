@@ -50,6 +50,7 @@ public class PowerGdpCorrelationIndustryConverter {
 
     }
 
+    //~私有方法
     /**
      * @return PowerGdpCorrelationIndustryDomain 如果是真实值则调用
      * @param DO

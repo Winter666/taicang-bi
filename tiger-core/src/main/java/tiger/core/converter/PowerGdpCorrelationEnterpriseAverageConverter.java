@@ -41,6 +41,7 @@ public class PowerGdpCorrelationEnterpriseAverageConverter {
         return powerDomains;
     }
 
+    //~私有方法
     private static PowerGdpCorrelationEnterpriseAverageDomain singleConvertOnReal(PowerGdpCorrelationEnterpriseAverageDO powerDO){
         PowerGdpCorrelationEnterpriseAverageDomain powerDomain = new PowerGdpCorrelationEnterpriseAverageDomain();
         powerDomain.setYear(powerDO.getYear());

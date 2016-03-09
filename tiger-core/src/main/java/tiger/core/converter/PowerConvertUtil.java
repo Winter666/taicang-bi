@@ -38,6 +38,7 @@ public class PowerConvertUtil {
             PowerGdpCorrelationIndustrySoloDomain domain = new PowerGdpCorrelationIndustrySoloDomain();
             PowerGdpCorrelationIndustryDO DO = (PowerGdpCorrelationIndustryDO)_DO;
             DO = (PowerGdpCorrelationIndustryDO)_DO;
+            domain.setIndustryId(DO.getIndustryId());
             domain.setYear(DO.getYear());
             domain.setSeason(DO.getSeason());
             domain.setGdpValue(DO.getRealIndustryGdp());
@@ -68,6 +69,7 @@ public class PowerConvertUtil {
             PowerGdpCorrelationIndustrySoloDomain domain = new PowerGdpCorrelationIndustrySoloDomain();
             PowerGdpCorrelationIndustryDO DO = (PowerGdpCorrelationIndustryDO)_DO;
             DO = (PowerGdpCorrelationIndustryDO)_DO;
+            domain.setIndustryId(DO.getIndustryId());
             domain.setYear(DO.getYear());
             domain.setSeason(DO.getSeason());
             domain.setGdpValue(DO.getForcastIndustryGdp());

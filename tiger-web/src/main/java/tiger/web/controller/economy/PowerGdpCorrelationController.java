@@ -5,6 +5,7 @@
 package tiger.web.controller.economy;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,7 @@ public class PowerGdpCorrelationController {
     PowerGdpCorrelationIndustryManager powerGdpCorrelationIndustryManager;
 
     @Autowired
+    @Qualifier("PowerGdpCorrelationIndustrySoloManagerImpl")
     PowerGdpCorrelationIndustrySoloManager powerGdpCorrelationIndustrySoloManager;
 
     @Autowired

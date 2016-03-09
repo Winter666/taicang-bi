@@ -16,50 +16,12 @@ import java.util.List;
 /**
  * Created by Bongo on 16/3/1.
  */
-@Service
-public class PowerGdpCorrelationManager {
+public interface PowerGdpCorrelationManager {
 
-    @Autowired
-    PowerGdpCorrelationService pgcs;
 
     /**
      * 将PowerGdpCorrelationDomainList转换为前端可用的数组对象,第一元素gdpValue[] 第二元素powerValue[]
      * */
-    public List<double[]> getPowerGdpArray(){
-
-        List<double[]> arrays = new ArrayList<>();
-
-
-        double[] years = new double[13],
-                gdps=new double[13],
-                powers =new double[13];
-        int mark = 0;
-
-        Iterator<PowerGdpCorrelationDomain> e = getPowerGdpCorrelationDomainList().iterator();
-
-        while(e.hasNext()){
-
-            PowerGdpCorrelationDomain temp = e.next();
-            years[mark] = temp.getYear();
-            gdps[mark] = temp.getGdpValue();
-            powers[mark] = temp.getPowerValue();
-            mark++;
-
-        }
-        arrays.add(years);
-
-        arrays.add(gdps);
-
-        arrays.add(powers);
-
-        return arrays;
-    }
-
-    /**
-     * @return PowerGdpCorrelationDomainList
-     * */
-    private List<PowerGdpCorrelationDomain> getPowerGdpCorrelationDomainList(){
-        return pgcs.getPowerGdpCorrelationDomainList();
-    }
+    List<double[]> getPowerGdpArray();
 
 }

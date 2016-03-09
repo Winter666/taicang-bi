@@ -28,14 +28,7 @@ public class PowerGdpCorrelationIndustryService {
     }
 
     public List<PowerGdpCorrelationIndustrySoloDomain> getPowerGdpCorrelationIndustrySoloDomainList(){
-
         return PowerGdpCorrelationIndustrySoloConverter.convertByList(pgcim.getPowerGdpCorrelationIndustrySoloDOList());
-
     }
-
-    /*
-   * main for test
-   * how to write????????
-   * */
 
 }

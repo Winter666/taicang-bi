@@ -32,6 +32,16 @@ public class PowerGdpCorrelationIndustrySoloDomain extends PowerGdpCorrelationBa
      * */
     private double gdpValue;
 
+    @Override
+    public String toString() {
+        return "PowerGdpCorrelationIndustrySoloDomain{" +
+                "industryId=" + industryId +
+                ", year=" + year +
+                ", season=" + season +
+                ", gdpValue=" + gdpValue +
+                ", powerValue=" + powerValue +
+                '}';
+    }
 
     /**
      * 用电量数据 合并了真实值和预测值
