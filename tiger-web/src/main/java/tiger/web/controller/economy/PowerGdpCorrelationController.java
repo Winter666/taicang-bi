@@ -51,6 +51,9 @@ public class PowerGdpCorrelationController {
 
     }
 
+    /**
+     * 行业用电量与经济发展关联分析 图二
+     * */
     @RequestMapping(value = "/api/predictData/powerGdpCorrelationIndustryData/list",method = RequestMethod.GET)
     public BaseResult getIndustryMap(){
 
@@ -60,6 +63,9 @@ public class PowerGdpCorrelationController {
 
     }
 
+    /**
+     * 行业用电量与经济发展关联分析 图三
+     * */
     @RequestMapping(value = "/api/predictData/powerGdpCorrelationIndustrySoloData/list",method = RequestMethod.GET)
     public BaseResult getIndustrySoloMap(){
 
@@ -68,6 +74,10 @@ public class PowerGdpCorrelationController {
         return new BaseResult(map);
 
     }
+
+    /**
+     * 企业用电量与经济发展关联分析 图四
+     * */
     @RequestMapping(value = "/api/predictData/powerGdpCorrelationEnterpriseAverageData/list",method = RequestMethod.GET)
     public BaseResult getEnterpriseAverageList(){
 
@@ -76,6 +86,9 @@ public class PowerGdpCorrelationController {
         return new BaseResult(list);
 
     }
+    /**
+     * 企业用电量与经济发展关联分析 图五
+     * */
     @RequestMapping(value = "/api/predictData/powerGdpCorrelationEnterpriseSoloData/list",method = RequestMethod.GET)
     public BaseResult getEnterpriseSoloList(){
 
