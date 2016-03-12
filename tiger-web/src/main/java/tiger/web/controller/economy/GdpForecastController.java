@@ -26,7 +26,7 @@ public class GdpForecastController {
     private GdpForecastManager gdpForecastManager;
 
     @RequestMapping(value="/api/predictData/gdpForecastData/*", method = RequestMethod.GET)
-    public BaseResult getGdpForecastData(@RequestParam(value="year",defaultValue ="2016") int year)
+    public BaseResult getGdpForecastData(@RequestParam(value="year",defaultValue ="2015") int year)
     {
         System.out.println(year);
         List<GdpForecastDO> gdpForecastDOList = gdpForecastManager.getGdpForecastData();
@@ -51,6 +51,14 @@ public class GdpForecastController {
         double thisyearthirdindustryvalue[]=new double[4];
         double thisyearthirdindustryfcvalue[]=new double[4];
         double thisyearthirdindustrygrowvalue[]=new double[4];
+        double xyear[]=new double[12];
+        double gdpxyear=year;
+        double index=-8;
+        for (int xy=0;xy<12;xy++){
+            xyear[xy]=gdpxyear+index;
+            index++;
+
+        }
         Iterator<GdpForecastDO> e = gdpForecastDOList.iterator();
 
         int j=0;
@@ -59,7 +67,7 @@ public class GdpForecastController {
 
         while(e.hasNext()){
             GdpForecastDO temp = e.next();
-            if(temp.getIndustryType_id()==11&&temp.getQuarter()==4&&temp.getYear()>year-10&&temp.getYear()<year+3){
+            if(temp.getIndustryType_id()==11&&temp.getQuarter()==4&&temp.getYear()>year-9&&temp.getYear()<year+4){
 
                 gdprealvalue[j]=temp.getGdpRealValue();
                 gdpforecastvalue[j]=temp.getGdpForecastValue();
@@ -84,7 +92,7 @@ public class GdpForecastController {
         int b0=0;
         while(f.hasNext()){
             GdpForecastDO temp= f.next();
-            if (temp.getIndustryType_id()==11&& temp.getYear()==year-1&&b0<4){
+            if (temp.getIndustryType_id()==11&& temp.getYear()==year&&b0<4){
                 if (temp.getQuarter()==b0+1){
                     gdpquarterrealvalue[b0]=temp.getGdpRealValue();
                     gdpquarterforecastvalue[b0]=temp.getGdpForecastValue();
@@ -182,7 +190,7 @@ public class GdpForecastController {
         int b4=0;
         while(thisyearindustry1.hasNext()){
             GdpForecastDO temp=thisyearindustry1.next();
-            if (temp.getIndustryType_id()==12&&temp.getYear()==year-1){
+            if (temp.getIndustryType_id()==12&&temp.getYear()==year){
                 if(temp.getQuarter()==b4+1){
                     thisyearfirstindustryvalue[b4]=temp.getGdpRealValue();
                     thisyearfirstindustryfcvalue[b4]=temp.getGdpForecastValue();
@@ -198,7 +206,7 @@ public class GdpForecastController {
         int b5=0;
         while(thisyearindustry2.hasNext()){
             GdpForecastDO temp=thisyearindustry2.next();
-            if (temp.getIndustryType_id()==13&&temp.getYear()==year-1){
+            if (temp.getIndustryType_id()==13&&temp.getYear()==year){
                 if (temp.getQuarter()==b5+1){
                     thisyearsecondindustryvalue[b5]=temp.getGdpRealValue();
                     thisyearsecondindustryfcvalue[b5]=temp.getGdpForecastValue();
@@ -214,7 +222,7 @@ public class GdpForecastController {
         int b6=0;
         while(thisyearindustry3.hasNext()){
             GdpForecastDO temp=thisyearindustry3.next();
-            if (temp.getIndustryType_id()==14&&temp.getYear()==year-1){
+            if (temp.getIndustryType_id()==14&&temp.getYear()==year){
                 if (temp.getQuarter()==b6+1){
                     thisyearthirdindustryvalue[b6]=temp.getGdpRealValue();
                     thisyearthirdindustryfcvalue[b6]=temp.getGdpForecastValue();
@@ -226,6 +234,7 @@ public class GdpForecastController {
         arrays.add(thisyearthirdindustryvalue);
         arrays.add(thisyearthirdindustryfcvalue);
         arrays.add(thisyearthirdindustrygrowvalue);
+        arrays.add(xyear);
         return new BaseResult(arrays);
     }
 

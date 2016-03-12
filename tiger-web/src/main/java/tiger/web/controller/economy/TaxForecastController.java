@@ -3,6 +3,7 @@ package tiger.web.controller.economy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tiger.common.data.dataobject.GdpForecastDO;
 import tiger.core.base.BaseResult;
@@ -21,23 +22,30 @@ public class TaxForecastController {
 
     @Autowired
     private TaxForecastManager taxForecastManager;
-    @RequestMapping(value="/api/predictData/taxForecastData/list", method = RequestMethod.GET)
-    public BaseResult gettaxForecastData(){
+    @RequestMapping(value="/api/predictData/taxForecastData/*", method = RequestMethod.GET)
+    public BaseResult gettaxForecastData(@RequestParam(value="year",defaultValue = "2015") int year){
         List<TaxForecastDO> taxForecastDOList= taxForecastManager.gettaxForecastData();
         List<double[]> arrays=new ArrayList<double[]>();
         Calendar a= Calendar.getInstance();
-        int year=a.get(Calendar.YEAR);
+        int ayear=a.get(Calendar.YEAR);
         double taxrealvalue[]=new double[13];
         double taxforecastvalue[]=new double[13];
         double taxgrowvalue[]=new double[13];
         double taxthisyearrealvalue[]=new double[11];
         double taxthisyearforecastvalue[]=new double[11];
         double taxthisyeargrowratevalue[]=new double[11];
+        double xyear[]=new double[13];
+//        double xyearvalue=year;
+        double balancevalue=-9;
+        for (int xy=0;xy<13;xy++){
+            xyear[xy]=year+balancevalue;
+            balancevalue++;
+        };
         Iterator<TaxForecastDO> e=taxForecastDOList.iterator();
         int i=0;
         while(e.hasNext()){
             TaxForecastDO temp=e.next();
-            if (temp.getMonth()==12&&temp.getYear()>=year-10&&temp.getYear()<year+3){
+            if (temp.getMonth()==12&&temp.getYear()>=year-9&&temp.getYear()<year+4){
                 taxrealvalue[i]=temp.getTaxRealValue();
                 taxforecastvalue[i]=temp.getTaxForecastValue();
                 taxgrowvalue[i]=temp.getTaxGrowthRate();
@@ -51,11 +59,18 @@ public class TaxForecastController {
         Iterator<TaxForecastDO> t=taxForecastDOList.iterator();
         while(t.hasNext()){
             TaxForecastDO temp=t.next();
-            if (temp.getYear()==2015&&temp.getMonth()>=2&&temp.getMonth()<=12){
-               taxthisyearrealvalue[j]=temp.getTaxRealValue();
+            if (temp.getYear()==year&&temp.getMonth()>=2&&temp.getMonth()<=12){
+                if(year>=ayear+1){
+                    taxthisyearrealvalue[j]=0;
+                    taxthisyearforecastvalue[j]=0;
+                    taxthisyeargrowratevalue[j]=0;
+                    j++;
+                }else{
+                taxthisyearrealvalue[j]=temp.getTaxRealValue();
                 taxthisyearforecastvalue[j]=temp.getTaxForecastValue();
                 taxthisyeargrowratevalue[j]=temp.getTaxGrowthRate();
                 j++;
+                }
             }
 
         }
@@ -83,7 +98,7 @@ public class TaxForecastController {
         arrays.add(taxthisyearrealvalue);
         arrays.add(taxthisyearforecastvalue);
         arrays.add(taxthisyeargrowratevalue);
-
-         return new BaseResult(arrays);
+        arrays.add(xyear);
+        return new BaseResult(arrays);
     }
 }
