@@ -53,9 +53,6 @@
         where id = #{id,jdbcType=BIGINT}
     </update>
     <select id="selectByAccount" resultMap="BaseResultMap" parameterType="String">
-        select
-        <include refid="Base_Column_List" />
-        from account a
-        where a.account = #{account}
+        select * from account a where a.account = #{account}
     </select>
 </mapper>
