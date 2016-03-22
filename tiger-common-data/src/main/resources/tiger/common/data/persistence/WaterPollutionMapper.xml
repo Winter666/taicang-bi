@@ -16,7 +16,7 @@
         <result column="water_pollution_source" property="water_pollution_source" jdbcType="BIGINT" />
     </resultMap>
     <sql id="Base_Column_List" >
-        id,create_time,modify_time,date,day,month,year,discharge,water_Pollution
+        id,create_time,modify_time,date,day,month,year,discharge,water_pollution_source
     </sql>
     <select id="getWaterPollutionData" resultMap="BaseResultMap">
         SELECT * FROM `water_pollution_data` where (water_pollution_source = 4011 or water_pollution_source = 4012 or water_pollution_source = 4016 or water_pollution_source = 4017 or water_pollution_source = 4019) order by id DESC limit 30
@@ -24,7 +24,7 @@
     <select id="getWaterPollutionDataForMap" resultMap="BaseResultMap">
         SELECT *
         FROM water_pollution_data
-        ORDER BY create_time DESC limit 9
+        ORDER BY id DESC limit 9
     </select>
 
 </mapper>
