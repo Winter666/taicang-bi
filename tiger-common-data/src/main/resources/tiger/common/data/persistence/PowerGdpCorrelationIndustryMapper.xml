@@ -16,7 +16,7 @@
     <select id="getPowerGdpCorrelationIndustryDOList" resultMap="BaseResultMap">
         select * from industry_data_forcast
         where
-        season = 0
+        season = 4
     </select>
     <select id="getPowerGdpCorrelationIndustrySoloDOList" resultMap="BaseResultMap">
         select * from industry_data_forcast

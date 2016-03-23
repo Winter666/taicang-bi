@@ -33,12 +33,10 @@ public class PowerGdpCorrelationIndustrySoloConverter {
             if(startYear<=temp.getYear()&&temp.getYear()<currentYear){
                 domains.add((PowerGdpCorrelationIndustrySoloDomain)PowerConvertUtil.singleConvertOnReal(temp));
             }else if(temp.getYear()==currentYear){
-                if (temp.getSeason()==0){
+                if (temp.getSeason()>=currentSeason){
                     domains.add((PowerGdpCorrelationIndustrySoloDomain)PowerConvertUtil.singleConvertOnForcast(temp));
-                }else if(temp.getSeason()<currentSeason){
+                }else {
                     domains.add((PowerGdpCorrelationIndustrySoloDomain)PowerConvertUtil.singleConvertOnReal(temp));
-                }else{
-                    domains.add((PowerGdpCorrelationIndustrySoloDomain)PowerConvertUtil.singleConvertOnForcast(temp));
                 }
             }else if(temp.getYear()>currentYear&&temp.getYear()<=endYear){
                 domains.add((PowerGdpCorrelationIndustrySoloDomain)PowerConvertUtil.singleConvertOnForcast(temp));

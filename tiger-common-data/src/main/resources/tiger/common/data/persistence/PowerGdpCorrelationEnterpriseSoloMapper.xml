@@ -8,10 +8,10 @@
         <result column="year" property="year" jdbcType="BIGINT" />
         <result column="season" property="season" jdbcType="BIGINT" />
         <result column="enterprise_id" property="enterpriseId" jdbcType="BIGINT" />
-        <result column="real_enterprise_power" property="realEnterprisePower" jdbcType="DOUBLE" />
-        <result column="forcast_enterprise_power" property="forcastEnterprisePower" jdbcType="DOUBLE" />
-        <result column="real_enterprise_gdp" property="realEnterpriseGdp" jdbcType="DOUBLE" />
-        <result column="forcast_enterprise_gdp" property="forcastEnterpriseGdp" jdbcType="DOUBLE" />
+        <result column="real_enterprise_power" property="realEnterprisePower" jdbcType="VARCHAR" />
+        <result column="forcast_enterprise_power" property="forcastEnterprisePower" jdbcType="VARCHAR" />
+        <result column="real_enterprise_gdp" property="realEnterpriseGdp" jdbcType="VARCHAR" />
+        <result column="forcast_enterprise_gdp" property="forcastEnterpriseGdp" jdbcType="VARCHAR" />
     </resultMap>
     <select id="getPowerGdpCorrelationEnterpriseSoloDOList" resultMap="BaseResultMap">
         select * from enterprise_data_forcast

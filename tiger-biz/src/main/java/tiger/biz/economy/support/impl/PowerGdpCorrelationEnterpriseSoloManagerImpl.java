@@ -77,7 +77,7 @@ public class PowerGdpCorrelationEnterpriseSoloManagerImpl implements PowerGdpCor
 
                 PowerGdpCorrelationEnterpriseSoloDomain temp = e.next();
 
-                if (temp.getEnterpriseId()==industryMark&&temp.getSeason()==0){
+                if (temp.getEnterpriseId()==industryMark&&temp.getSeason()==4){
 
                     gdps[mark] = temp.getGdpValue();
                     powers[mark] = temp.getPowerValue();

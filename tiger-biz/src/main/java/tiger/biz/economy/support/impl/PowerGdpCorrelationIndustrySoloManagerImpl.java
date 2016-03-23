@@ -57,7 +57,7 @@ public class PowerGdpCorrelationIndustrySoloManagerImpl implements PowerGdpCorre
                     PowerGdpCorrelationIndustrySoloDomain temp = in.next();
 //                    System.out.println(temp); //test success
 //                    System.out.println(temp.getIndustryId()+" "+temp.getYear()+"  "+temp.getSeason());
-                    if (temp.getIndustryId()==industryMark&&temp.getYear()==yearMark&&temp.getSeason()!=0){
+                    if (temp.getIndustryId()==industryMark&&temp.getYear()==yearMark){
                         gdpss[markk] = temp.getGdpValue();
                         powerss[markk] = temp.getPowerValue();
                         markk++;
@@ -76,7 +76,7 @@ public class PowerGdpCorrelationIndustrySoloManagerImpl implements PowerGdpCorre
 
                 PowerGdpCorrelationIndustrySoloDomain temp = e.next();
 
-                if (temp.getIndustryId()==industryMark&&temp.getSeason()==0){
+                if (temp.getIndustryId()==industryMark&&temp.getSeason()==4){
 
                     gdps[mark] = temp.getGdpValue();
                     powers[mark] = temp.getPowerValue();
