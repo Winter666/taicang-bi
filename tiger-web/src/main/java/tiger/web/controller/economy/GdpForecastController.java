@@ -217,7 +217,7 @@ public class GdpForecastController {
         }
         arrays.add(thisyearsecondindustryvalue);
         arrays.add(thisyearsecondindustryfcvalue);
-        arrays.add(thisyearfirstindustrygrowvalue);
+        arrays.add(thisyearsecondindustrygrowvalue);
         Iterator<GdpForecastDO> thisyearindustry3=gdpForecastDOList.iterator();
         int b6=0;
         while(thisyearindustry3.hasNext()){
