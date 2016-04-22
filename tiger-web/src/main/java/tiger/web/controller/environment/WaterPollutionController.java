@@ -29,17 +29,16 @@ public class WaterPollutionController {
         List<WaterPollutionDO> waterPollutionDOList = waterPollutionManager.getWaterPollutionData();
 //		System.out.println(waterPollutionDOList.size());
 
-		Date date=waterPollutionDOList.get(0).getDate();
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(new java.util.Date(date.getTime()));
-		String datetime[]=new String[1];
-		datetime[0]=cal.get(Calendar.YEAR) + "年" + (cal.get(Calendar.MONTH)+1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日" + 9 + "时";
+		Calendar now = Calendar.getInstance();
+		String date[]=new String[7];
+		String date1[]=new String[7];
 
-
-		String date1[]=new String[6];
-		for (int i = 0; i < 6; i++) {
-			date1[5-i]=waterPollutionDOList.get(i*5).getMonth() + "月" + waterPollutionDOList.get(i*5).getDay() + "日";
+		for (int j = 0; j < 6; j++) {
+			now.add(Calendar.DATE, -1);
+			date[j]=(now.get(Calendar.MONTH) + 1) + "月" + now.get(Calendar.DAY_OF_MONTH) +"日";
 		}
+		date1[0]=date[5];date1[1]=date[4];date1[2]=date[3];date1[3]=date[2];date1[4]=date[1];date1[5]=date[0];
+
 
 		List  list = new ArrayList();
         ArrayList<Double> JiuLONGDischarge  = new ArrayList<Double>();
@@ -201,7 +200,6 @@ public class WaterPollutionController {
         list.add(LiuHeP);
         list.add(GangChengP);
         list.add(TCRivertownP);
-		list.add(datetime);
 		list.add(date1);
 		return new BaseResult(list);
     }

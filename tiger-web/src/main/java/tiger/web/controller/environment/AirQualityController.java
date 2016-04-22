@@ -11,6 +11,7 @@ import tiger.core.base.BaseResult;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,8 +38,9 @@ public class AirQualityController {
         int day1[]=new int[7];
         int month[]=new int[7];
         int month1[]=new int[7];
-        String date[]=new String[7];
-        String datetime[]=new String[7];
+        String date[]=new String[15];
+        String date1[]=new String[15];
+        String date2[]=new String[7];
         String firstElement[]=new String[7];
         String firstElement1[]=new String[7];
         double pm25[]=new double[7];
@@ -97,9 +99,21 @@ public class AirQualityController {
         o31[0]=o3[6];o31[1]=o3[5];o31[2]=o3[4];o31[3]=o3[3];o31[4]=o3[2];o31[5]=o3[1];o31[6]=o3[0];
         hour1[0]=hour[6];hour1[1]=hour[5];hour1[2]=hour[4];hour1[3]=hour[3];hour1[4]=hour[2];hour1[5]=hour[1];hour1[6]=hour[0];
         airQualityLevel1[0]=airQualityLevel[6];airQualityLevel1[1]=airQualityLevel[5];airQualityLevel1[2]=airQualityLevel[4];airQualityLevel1[3]=airQualityLevel[3];airQualityLevel1[4]=airQualityLevel[2];airQualityLevel1[5]=airQualityLevel[1];airQualityLevel1[6]=airQualityLevel[0];
+
+        Calendar now = Calendar.getInstance();
         for (j = 0; j < 7; j++) {
-            date[j]=month1[j]+"月"+day1[j]+"日";
-            datetime[j]=month1[j]+"月"+day1[j]+"日"+hour1[j]+"时";
+            now.add(Calendar.DATE, -1);
+            date[j]=(now.get(Calendar.MONTH) + 1) + "月" + now.get(Calendar.DAY_OF_MONTH) +"日";
+        }
+        date1[0]=date[6];date1[1]=date[5];date1[2]=date[4];date1[3]=date[3];date1[4]=date[2];date1[5]=date[1];date1[6]=date[0];
+
+        now.add(Calendar.DATE, 7);
+        for (j = 7; j < 15; j++) {
+            date1[j]=(now.get(Calendar.MONTH) + 1) + "月" + now.get(Calendar.DAY_OF_MONTH) +"日";
+            now.add(Calendar.DATE, 1);
+        }
+        for (j = 0; j < 7; j++) {
+            date2[j]=date1[j+8];
         }
         for (j = 0; j < 7; j++) {
             switch (airQualityLevel1[j]){
@@ -132,7 +146,7 @@ public class AirQualityController {
         }
         arrays.add(aqi1);
         arrays.add(predictaqi1);
-        arrays.add(date);
+        arrays.add(date1);
         arrays.add(firstElement1);
         arrays.add(pm251);
         arrays.add(pm101);
@@ -140,7 +154,7 @@ public class AirQualityController {
         arrays.add(no21);
         arrays.add(co1);
         arrays.add(o31);
-        arrays.add(datetime);
+        arrays.add(date2);
         arrays.add(airQualityLevel2);
         arrays.add(healthEffect);
         arrays.add(proposedMeasure);

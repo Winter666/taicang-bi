@@ -9,6 +9,7 @@ import tiger.common.data.dataobject.WaterIndustryDO;
 import tiger.core.base.BaseResult;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,11 +27,15 @@ public class WaterIndustryController {
     {
         List<WaterIndustryDO> waterIndustryDOList = waterIndustryManager.getWaterIndustryData();
 
+        Calendar now = Calendar.getInstance();
         String date[]=new String[7];
-        for (int i = 0; i < 7; i++) {
-            date[6-i]=waterIndustryDOList.get(i*5).getMonth() + "月" + waterIndustryDOList.get(i*5).getDay() + "日";
-        }
+        String date1[]=new String[7];
 
+        for (int j = 0; j < 7; j++) {
+            now.add(Calendar.DATE, -1);
+            date[j]=(now.get(Calendar.MONTH) + 1) + "月" + now.get(Calendar.DAY_OF_MONTH) +"日";
+        }
+        date1[0]=date[6];date1[1]=date[5];date1[2]=date[4];date1[3]=date[3];date1[4]=date[2];date1[5]=date[1];date1[6]=date[0];
 
         ArrayList<Double> list11  = new ArrayList<Double>();
         ArrayList<Double> list12  = new ArrayList<Double>();
@@ -71,7 +76,7 @@ public class WaterIndustryController {
         list.add(list13);
         list.add(list14);
         list.add(list15);
-        list.add(date);
+        list.add(date1);
         return new BaseResult(list);
     }
 
